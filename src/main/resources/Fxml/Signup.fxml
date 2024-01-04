@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #E6E6E6;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.groceryapp.Controllers.SignupController">
+    <Pane prefHeight="540.0" prefWidth="398.0" style="-fx-background-color: #8AA96A;">
+        <ImageView fitHeight="510.0" fitWidth="364.0" layoutX="16.0" layoutY="15.0" opacity="0.45">
+            <Image url="@../Styles/basket.png" />
+         <effect>
+            <DropShadow />
+         </effect>
+        </ImageView>
+      <Label layoutX="20.0" layoutY="492.0" style="-fx-background-color: transparent;" text="&quot;Fresh Choices, Every Aisle – Your Grocery, Your Way!&quot;" textFill="#1a0000">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+         <effect>
+            <Reflection bottomOpacity="0.27" fraction="0.64" topOpacity="1.0" />
+         </effect>
+      </Label>
+      <effect>
+         <DropShadow height="53.43" radius="23.2675" width="41.64" />
+      </effect>
+    </Pane>
+    <Pane layoutX="450.0" layoutY="15.0" prefHeight="510.0" prefWidth="450.0" style="-fx-background-color: #076A5A; -fx-background-radius: 40;">
+        <Text layoutX="93.0" layoutY="37.0" lineSpacing="4.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30; -fx-font-family: Comic Sans;" text="Sign Up!" textAlignment="CENTER" wrappingWidth="279.0">
+            <font>
+                <Font name="Comic Sans MS Bold" size="13.0" />
+            </font>
+            <effect>
+                <DropShadow height="48.26" radius="21.9725" width="41.63">
+                    <color>
+                        <Color red="0.28947368264198303" green="0.030823586508631706" blue="0.030823586508631706" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <Text layoutX="146.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Let's get started!" textAlignment="CENTER" wrappingWidth="172.36599731445312">
+            <font>
+                <Font name="American Typewriter Condensed Bold" size="15.0" />
+            </font>
+        </Text>
+        <TextField fx:id="email_address_field" layoutX="79.0" layoutY="282.0" prefHeight="26.0" prefWidth="292.0" promptText="Email" style="-fx-background-radius: 10;" />
+        <PasswordField fx:id="password_field" layoutX="79.0" layoutY="343.0" prefHeight="26.0" prefWidth="292.0" promptText="Password" style="-fx-background-radius: 10;" />
+        <Button fx:id="signup_btn" layoutX="172.0" layoutY="393.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="109.0" style="-fx-background-radius: 10; -fx-background-color: #A0A080;" text="Sign Up">
+            <font>
+                <Font name="Comic Sans MS" size="14.0" />
+            </font>
+            <effect>
+                <DropShadow height="29.84" radius="15.157499999999999" spread="0.14" width="32.79" />
+            </effect>
+        </Button>
+        <Button fx:id="signin_btn" layoutX="104.0" layoutY="443.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="245.0" style="-fx-background-color: #8AA96A; -fx-background-radius: 10;" text="Already have an account? Sign In!">
+            <effect>
+                <DropShadow height="38.69" radius="20.3175" spread="0.07" width="44.58" />
+            </effect>
+        </Button>
+        <Label fx:id="email_address_label" layoutX="80.0" layoutY="255.0" prefHeight="19.0" prefWidth="99.0" text="Email Address:">
+            <font>
+                <Font name="Comic Sans MS Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label fx:id="password_lbl" layoutX="80.0" layoutY="318.0" prefHeight="19.0" prefWidth="99.0" text="Password:">
+            <font>
+                <Font name="Comic Sans MS Bold" size="13.0" />
+            </font>
+        </Label>
+      <TextField fx:id="name_field" layoutX="80.0" layoutY="94.0" prefHeight="26.0" prefWidth="292.0" promptText="Name" style="-fx-background-radius: 10;" />
+      <TextField fx:id="surname_field" layoutX="79.0" layoutY="156.0" prefHeight="26.0" prefWidth="292.0" promptText="Surname" style="-fx-background-radius: 10;" />
+      <Label fx:id="surname_lbl" layoutX="80.0" layoutY="130.0" prefHeight="19.0" prefWidth="99.0" text="Surname:">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="name_lbl" layoutX="80.0" layoutY="68.0" prefHeight="19.0" prefWidth="99.0" text="Name:">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="phone_field" layoutX="79.0" layoutY="220.0" prefHeight="26.0" prefWidth="292.0" promptText="Phone Number" style="-fx-background-radius: 10;" />
+      <Label fx:id="phone_lbl" layoutX="80.0" layoutY="195.0" prefHeight="19.0" prefWidth="99.0" text="Phone Number:">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Label>
+      <effect>
+         <DropShadow height="38.69" radius="18.845" width="38.69" />
+      </effect>
+    </Pane>
+</AnchorPane>
