@@ -17,7 +17,25 @@ import java.util.ResourceBundle;
 public class HomeController implements Initializable {
 
     @FXML
+    private Button aboutUs_btn;
+
+    @FXML
+    private Button account_btn;
+
+    @FXML
+    private Button chart_btn;
+
+    @FXML
+    private Button contact_btn;
+
+    @FXML
     private Text customer_name;
+
+    @FXML
+    private Button home_btn;
+
+    @FXML
+    private Button logout_btn;
 
     @FXML
     private AnchorPane menu_form;
@@ -29,22 +47,25 @@ public class HomeController implements Initializable {
     private ScrollPane menu_scrollPane;
 
     @FXML
-    private TableView<MenuItem> menu_tableView; // Replace with the actual type of your data model (e.g., MenuItem)
+    private TableView<?> menu_tableView;
 
     @FXML
-    private TableColumn<MenuItem, Double> menu_table_col_price; // Replace with the actual type of your data model for the price (e.g., Double)
+    private TableColumn<?, ?> menu_table_col_price;
 
     @FXML
-    private TableColumn<MenuItem, String> menu_table_col_product; // Replace with the actual type of your data model for the product name (e.g., String)
+    private TableColumn<?, ?> menu_table_col_product;
 
     @FXML
-    private TableColumn<MenuItem, Integer> menu_table_col_quantity; // Replace with the actual type of your data model for the quantity (e.g., Integer)
+    private TableColumn<?, ?> menu_table_col_quantity;
 
     @FXML
     private Label menu_total;
 
     @FXML
     private Label menu_vat;
+
+    @FXML
+    private Button orders_btn;
 
     @FXML
     private Button pay_btn;
@@ -55,7 +76,12 @@ public class HomeController implements Initializable {
     @FXML
     private Button remove_btn;
 
-    public void MenuDisplayCard() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
+    /*public void MenuDisplayCard() {
         int row = 0;
         int column = 0;
 
@@ -84,5 +110,5 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         MenuDisplayCard();
-    }
+    }*/
 }
