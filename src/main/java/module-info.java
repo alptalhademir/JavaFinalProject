@@ -10,6 +10,4 @@ module com.jmc.groceryapp {
     exports com.jmc.groceryapp.Controllers.Owner;
     exports com.jmc.groceryapp.Controllers.Carrier;
     exports com.jmc.groceryapp.Controllers.Client;
-    exports com.jmc.groceryapp.Models;
-    exports com.jmc.groceryapp.Views;
 }
