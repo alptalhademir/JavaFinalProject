@@ -7,11 +7,8 @@ import javafx.beans.property.StringProperty;
 
 import java.time.LocalDate;
 
-public class Customer {
-    private final StringProperty FirstName;
-    private final StringProperty LastName;
-    private final StringProperty UserName;
-    private final StringProperty Password;
+public class Customer extends User {
+
     private final StringProperty Address;
     private final StringProperty PhoneNumber;
     private final ObjectProperty<Account> checkingAccount;
@@ -20,11 +17,9 @@ public class Customer {
     private final StringProperty orderStatus;
 
 
-    public Customer(String fName, String lName, String uName, String Password, String address, String pNumber, Account cAccount, Account uAccount, LocalDate cDate, String oStatus ){
-        this.FirstName=new SimpleStringProperty(this, "FirstName", fName);
-        this.LastName=new SimpleStringProperty(this, "LastName", lName);
-        this.UserName=new SimpleStringProperty(this, "UserName", uName);
-        this.Password=new SimpleStringProperty(this, "Password", Password);
+    public Customer( String fName, String lName, String uName, String Password, String address, String pNumber, Account cAccount, Account uAccount, LocalDate cDate, String oStatus ){
+        super(fName, lName, uName, Password);
+
         this.Address=new SimpleStringProperty(this, "Address", address);
         this.PhoneNumber=new SimpleStringProperty(this, "PhoneNumber", pNumber);
         this.checkingAccount=new SimpleObjectProperty<>(this, "checkingAccount", cAccount);
@@ -35,10 +30,7 @@ public class Customer {
 
 
     }
-    public StringProperty FirstNameProperty() {return FirstName;}
-    public StringProperty LastNameProperty() {return LastName;}
-    public StringProperty UserNameProperty() {return UserName;}
-    public StringProperty PasswordProperty() {return Password;}
+
     public StringProperty AddressProperty() {return Address;}
     public StringProperty PhoneNumberProperty() {return PhoneNumber;}
     public ObjectProperty<Account> checkingAccountProperty() {return checkingAccount;}
