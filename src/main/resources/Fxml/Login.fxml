@@ -58,7 +58,7 @@
             <Font name="Comic Sans MS Bold" size="13.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="acc_selector" layoutX="62.0" layoutY="161.0" opacity="0.82" prefWidth="150.0" style="-fx-background-color: #E6E6E6; -fx-background-radius: 10;">
+      <ChoiceBox fx:id="acc_selector" layoutX="62.0" layoutY="161.0" opacity="0.71" prefWidth="150.0" style="-fx-background-color: #E6E6E6; -fx-background-radius: 10;">
          <effect>
             <DropShadow height="38.69" radius="18.845" spread="0.23" width="38.69" />
          </effect>
