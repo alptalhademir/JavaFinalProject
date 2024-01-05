@@ -2,6 +2,7 @@ module com.jmc.groceryapp {
     requires javafx.controls;
     requires javafx.fxml;
     requires de.jensd.fx.glyphs.fontawesome;
+    requires java.sql;
 
 
     opens com.jmc.groceryapp to javafx.fxml;
