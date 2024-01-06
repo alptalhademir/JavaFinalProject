@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.util.Objects;
@@ -11,12 +12,16 @@ import java.util.Objects;
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage)  {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Signup.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/MainForm.fxml")));
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setMinHeight(540);
+            stage.setMinWidth(960);
+
             stage.show();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

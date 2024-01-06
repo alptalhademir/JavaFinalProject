@@ -65,7 +65,7 @@
       </ChoiceBox>
       <TextField fx:id="email_address_field" layoutX="80.0" layoutY="225.0" prefHeight="26.0" prefWidth="292.0" promptText="Email" style="-fx-background-radius: 10;" />
       <PasswordField fx:id="password_field" layoutX="79.0" layoutY="283.0" prefHeight="26.0" prefWidth="292.0" promptText="Password" style="-fx-background-radius: 10;" />
-      <Button fx:id="sign_btn" layoutX="170.0" layoutY="332.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="109.0" style="-fx-background-radius: 10; -fx-background-color: #A0A080;" text="Sign In">
+      <Button fx:id="sign_btn" layoutX="170.0" layoutY="332.0" mnemonicParsing="false" onAction="#sign_btn" prefHeight="30.0" prefWidth="109.0" style="-fx-background-radius: 10; -fx-background-color: #A0A080;" text="Sign In">
          <font>
             <Font name="Comic Sans MS" size="14.0" />
          </font>
