@@ -1,5 +1,14 @@
 package com.jmc.groceryapp.Controllers;
 
+import com.jmc.groceryapp.Models.Customer;
+import com.jmc.groceryapp.Models.User;
+import com.jmc.groceryapp.dao.CustomerDAO;
+import com.jmc.groceryapp.dao.UserDAO;
+import com.jmc.groceryapp.dao.impl.CustomerDAOImpl;
+import com.jmc.groceryapp.dao.impl.UserDAOImpl;
+import com.jmc.groceryapp.utils.DatabaseConnection;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -12,21 +21,41 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class SignupController implements Initializable {
-    public TextField email_address_field;
+    @FXML
+    public TextField address_field;
+    @FXML
     public PasswordField password_field;
+    @FXML
     public Button signup_btn;
     public Button signin_btn;
-    public Label email_address_label;
+    public Label address_label;
+    @FXML
+    public TextField username_field;
+    public Label username_lbl;
     public Label password_lbl;
+    @FXML
     public TextField name_field;
+    @FXML
     public TextField surname_field;
     public Label surname_lbl;
     public Label name_lbl;
+    @FXML
     public TextField phone_field;
     public Label phone_lbl;
+
+    private UserDAO userDao;
+    private CustomerDAO customerDAO;
+
+    private final DatabaseConnection dataBaseConnection= new DatabaseConnection();
+
+    public SignupController() {
+        this.userDao = new UserDAOImpl(dataBaseConnection);
+        this.customerDAO = new CustomerDAOImpl(dataBaseConnection, dataBaseConnection);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,5 +80,20 @@ public class SignupController implements Initializable {
             e.printStackTrace();
             // Handle the exception (e.g., show an error message)
         }
+    }
+
+    @FXML
+    public void handleSubmitButtonAction(ActionEvent event) {
+        String firstName = name_field.getText();
+        String lastName = surname_field.getText();
+        String userName = username_field.getText();
+        String adress = address_field.getText();
+        String password = password_field.getText();
+        String phoneNumber = phone_field.getText();
+
+        LocalDate creationDate = LocalDate.now();
+        Customer customer = new Customer(firstName, lastName, userName, password, "Customer", adress, phoneNumber, creationDate );
+        userDao.addUser(customer);
+        customerDAO.addCustomer(customer);
     }
 }

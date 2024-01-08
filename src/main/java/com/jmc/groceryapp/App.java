@@ -13,7 +13,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Signup.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Login.fxml")));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

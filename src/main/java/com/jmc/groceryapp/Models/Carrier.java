@@ -12,7 +12,7 @@ public class Carrier extends User {
     private final ObjectProperty<LocalDate> creationDate;
 
     public Carrier(String fName, String lName, String uName, String Password,String pNumber, LocalDate cDate){
-        super(fName, lName, uName, Password);
+        super(fName, lName, uName, Password,"Carrier");
 
         this.PhoneNumber=new SimpleStringProperty(this, "PhoneNumber", pNumber);
         this.creationDate=new SimpleObjectProperty<>(this, "creationDate", cDate);
