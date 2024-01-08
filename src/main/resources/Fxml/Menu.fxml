@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -29,15 +28,16 @@
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                 </GridPane>
+            <AnchorPane prefHeight="118.0" prefWidth="103.0" />
             </AnchorPane>
         </ScrollPane>
     </AnchorPane>
 
-    <AnchorPane layoutX="666.0" layoutY="11.0" prefHeight="520.0" prefWidth="279.0" style="-fx-background-color: #D4F3BA; -fx-background-radius: 20;" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="666.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="11.0">
+    <AnchorPane layoutX="665.0" layoutY="10.0" prefHeight="566.0" prefWidth="281.0" style="-fx-background-color: #D4F3BA; -fx-background-radius: 20;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="13.399999999999977" AnchorPane.topAnchor="10.0">
         <effect>
             <DropShadow />
         </effect>
-        <TableView fx:id="menu_tableView" layoutX="8.0" layoutY="14.0" prefHeight="238.0" prefWidth="260.0" style="-fx-background-color: #1A9991;" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="14.0">
+        <TableView fx:id="menu_tableView" layoutX="8.0" layoutY="14.0" prefHeight="260.0" prefWidth="260.0" style="-fx-background-color: #1A9991;" AnchorPane.bottomAnchor="318.0" AnchorPane.topAnchor="13.600000000000023">
             <columns>
                 <TableColumn fx:id="menu_table_col_product" prefWidth="94.0" text="Product Name" />
                 <TableColumn fx:id="menu_table_col_quantity" prefWidth="82.0" text="Quantity" />
@@ -47,50 +47,45 @@
                 <DropShadow />
             </effect>
         </TableView>
-        <Label layoutX="116.0" layoutY="260.0" prefHeight="29.0" prefWidth="46.0" text="Total:" textAlignment="CENTER">
+        <Label layoutX="115.0" layoutY="281.0" prefHeight="29.0" prefWidth="46.0" text="Total:" textAlignment="CENTER" AnchorPane.bottomAnchor="281.4">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <Label layoutX="119.0" layoutY="289.0" prefHeight="29.0" prefWidth="38.0" text="VAT:" textAlignment="CENTER">
+        <Label layoutX="120.0" layoutY="304.0" prefHeight="29.0" prefWidth="38.0" text="VAT:" textAlignment="CENTER" AnchorPane.bottomAnchor="258.4">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <Label fx:id="menu_total" layoutX="161.0" layoutY="260.0" prefHeight="29.0" prefWidth="46.0" text="\$0.0" textAlignment="CENTER" AnchorPane.bottomAnchor="231.0" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="260.0">
+        <Label fx:id="menu_total" layoutX="163.0" layoutY="304.0" prefHeight="29.0" prefWidth="46.0" text="\$0.0" textAlignment="CENTER" AnchorPane.bottomAnchor="258.4">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <Label fx:id="menu_vat" layoutX="161.0" layoutY="289.0" prefHeight="29.0" prefWidth="46.0" text="\$0.0" textAlignment="CENTER" AnchorPane.rightAnchor="70.0">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Label>
-        <Button fx:id="pay_btn" layoutX="23.0" layoutY="342.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="232.0" style="-fx-background-color: #3D6581; -fx-background-radius: 10;" text="Pay" textFill="WHITE" AnchorPane.bottomAnchor="141.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="342.0">
+        <Button fx:id="pay_btn" layoutX="20.0" layoutY="347.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="239.0" style="-fx-background-color: #3D6581; -fx-background-radius: 10;" text="Pay" textFill="WHITE" AnchorPane.bottomAnchor="163.4">
             <font>
                 <Font name="System Bold" size="19.0" />
             </font>
         </Button>
-        <Button fx:id="remove_btn" layoutX="23.0" layoutY="408.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="101.0" style="-fx-background-color: #3D6581; -fx-background-radius: 10;" text="Remove" textFill="WHITE" AnchorPane.bottomAnchor="75.0">
+        <Button fx:id="remove_btn" layoutX="14.0" layoutY="465.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="112.0" style="-fx-background-color: #3D6581; -fx-background-radius: 10;" text="Remove" textFill="WHITE" AnchorPane.bottomAnchor="76.6">
             <font>
                 <Font name="System Bold" size="19.0" />
             </font>
         </Button>
-        <Button fx:id="receipt_btn" layoutX="154.0" layoutY="408.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="101.0" style="-fx-background-color: #3D6581; -fx-background-radius: 10;" text="Receipt" textFill="WHITE" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="154.0" AnchorPane.rightAnchor="22.0">
+        <Button fx:id="receipt_btn" layoutX="141.0" layoutY="465.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="114.0" style="-fx-background-color: #3D6581; -fx-background-radius: 10;" text="Receipt" textFill="WHITE" AnchorPane.bottomAnchor="76.60000000000002">
             <font>
-                <Font size="19.0" />
+                <Font name="System Bold" size="19.0" />
             </font>
         </Button>
     </AnchorPane>
-    <Text layoutX="342.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group 17 GreenGrocerer" textAlignment="CENTER">
+    <Text layoutX="331.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group 17 GreenGrocerer" textAlignment="CENTER" AnchorPane.leftAnchor="331.0">
         <font>
             <Font name="System Bold" size="19.0" />
         </font>
     </Text>
    <AnchorPane prefHeight="540.0" prefWidth="190.0">
       <children>
-         <AnchorPane layoutX="-24.0" layoutY="14.0" prefHeight="563.0" prefWidth="186.0" style="-fx-background-color: #8AA96A;" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
+         <AnchorPane prefHeight="563.0" prefWidth="186.0" style="-fx-background-color: #8AA96A;" AnchorPane.bottomAnchor="0.0">
             <children>
                <AnchorPane layoutX="-5.0" layoutY="26.0" prefHeight="150.0" prefWidth="192.0" style="-fx-background-color: #8AA96A;" AnchorPane.bottomAnchor="413.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
                   <children>
@@ -102,11 +97,12 @@
                            <DropShadow />
                         </effect>
                      </ImageView>
-                     <Label layoutX="47.0" layoutY="125.0" text="HELLO, EDIN" textAlignment="CENTER">
+                     <Label layoutX="48.0" layoutY="94.0" text="HELLO, EDIN" textAlignment="CENTER">
                         <font>
                            <Font size="17.0" />
                         </font>
                      </Label>
+                     <AnchorPane layoutX="74.0" layoutY="25.0" prefHeight="164.0" prefWidth="132.0" />
                   </children>
                </AnchorPane>
                <Button fx:id="home_btn" layoutX="31.0" layoutY="180.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="114.0" style="-fx-background-radius: 10; -fx-background-color: #E6E6E6;" text="Home" textAlignment="CENTER">
@@ -141,7 +137,7 @@
                <FontAwesomeIconView glyphName="EXTERNAL_LINK" layoutX="43.0" layoutY="369.0" size="20" wrappingWidth="22.446627616882324" />
                <BorderPane layoutX="-6.0" layoutY="399.0" prefHeight="164.0" prefWidth="186.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="399.0">
                   <center>
-                     <AnchorPane prefHeight="164.0" prefWidth="195.0" BorderPane.alignment="CENTER">
+                     <AnchorPane prefHeight="176.0" prefWidth="205.0" BorderPane.alignment="CENTER">
                         <children>
                            <AnchorPane layoutX="29.0" layoutY="13.0" prefHeight="135.0" prefWidth="128.0" style="-fx-background-color: #FBEBD0; -fx-background-radius: 30;">
                               <effect>
