@@ -1,6 +1,5 @@
 package com.jmc.groceryapp.Controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -13,7 +12,6 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class SignupController implements Initializable {
@@ -87,7 +85,7 @@ public class SignupController implements Initializable {
     private void openLogInPage() {
         try {
             // Load the sign-up page FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Register.fxml"));
             Parent root = loader.load();
 
             Stage stage = null;

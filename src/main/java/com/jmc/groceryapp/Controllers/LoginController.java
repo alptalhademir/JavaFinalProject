@@ -24,6 +24,8 @@ public class LoginController implements Initializable {
     public Button signup_btn;
     public Label email_address_label;
     public Label password_lbl;
+    public TextField confirmPassword_AddressTxtField;
+    public PasswordField confirmPassword_AddressField;
 
     private Alert alert;
     private Connection connect;
@@ -39,63 +41,7 @@ public class LoginController implements Initializable {
         signup_btn.setOnAction(event -> openSignUpPage());
     }
 
-    public void sign_btn() throws IOException {
-        String accountType = acc_selector.getValue();
-        String email = email_address_field.getText();
-        String password = password_field.getText();
 
-        if (accountType.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            showErrorAlert("Please Fill All Blank Fields");
-        } else {
-            if (password.length() < 8) {
-                showErrorAlert("Your password should be at least 8 characters long");
-            } else {
-                // Check login credentials and handle success
-                boolean loginSuccess = authenticateUser(accountType, email, password);
-
-                if (loginSuccess) {
-                    showInfoAlert("Successfully Logged into your Account!");
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MainForm.fxml"));
-                    Parent root = loader.load();
-
-                    signUpStage = new Stage();
-                    signUpStage.setTitle("Sign Up");
-                    signUpStage.initModality(Modality.APPLICATION_MODAL);
-                    signUpStage.setScene(new Scene(root));
-                    // Perform any additional actions upon successful login
-                } else {
-                    showErrorAlert("Invalid credentials. Please try again.");
-                }
-
-                // Clear input fields
-                email_address_field.clear();
-                password_field.clear();
-            }
-        }
-    }
-
-    private boolean authenticateUser(String accountType, String email, String password) {
-        // Implement the logic to authenticate the user using the provided credentials
-        // You may need to query the database or use any other authentication mechanism
-        // For demonstration purposes, returning true for now
-        return true;
-    }
-
-    private void showErrorAlert(String message) {
-        alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error Message");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-
-    private void showInfoAlert(String message) {
-        alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information Message");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 
     private void openSignUpPage() {
         try {
