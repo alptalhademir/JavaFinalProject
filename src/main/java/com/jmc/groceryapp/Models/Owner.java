@@ -14,7 +14,7 @@ public class Owner extends User {
 
 
     public Owner( String fName, String lName, String uName, String Password,LocalDate cDate, String pStatus){
-        super(fName, lName, uName, Password);
+        super(fName, lName, uName, Password, "Owner");
 
         this.creationDate=new SimpleObjectProperty<>(this, "creationDate", cDate);
         this.PurchaseStatus=new SimpleStringProperty(this, "PurchaseStatus", pStatus);

@@ -8,33 +8,38 @@ import javafx.beans.property.StringProperty;
 import java.time.LocalDate;
 
 public class Customer extends User {
+    private int customerID;
+    private String address;
+    private String phoneNumber;
+    private LocalDate creationDate;
 
-    private final StringProperty Address;
-    private final StringProperty PhoneNumber;
-    private final ObjectProperty<Account> checkingAccount;
-    private final ObjectProperty<Account> updateAccount;
-    private final ObjectProperty<LocalDate> creationDate;
-    private final StringProperty orderStatus;
-
-
-    public Customer( String fName, String lName, String uName, String Password, String address, String pNumber, Account cAccount, Account uAccount, LocalDate cDate, String oStatus ){
-        super(fName, lName, uName, Password);
-
-        this.Address=new SimpleStringProperty(this, "Address", address);
-        this.PhoneNumber=new SimpleStringProperty(this, "PhoneNumber", pNumber);
-        this.checkingAccount=new SimpleObjectProperty<>(this, "checkingAccount", cAccount);
-        this.updateAccount=new SimpleObjectProperty<>(this, "updateAccount", uAccount);
-        this.creationDate=new SimpleObjectProperty<>(this, "creationDate", cDate);
-        this.orderStatus=new SimpleStringProperty(this, "orderStatus", oStatus);
+    //private String orderStatus;
 
 
 
+    public Customer(String firstName, String lastName, String userName, String password, String userRole,
+                    String address, String phoneNumber, LocalDate creationDate) {
+        super(firstName, lastName, userName, password, userRole);
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.creationDate = creationDate;
     }
 
-    public StringProperty AddressProperty() {return Address;}
-    public StringProperty PhoneNumberProperty() {return PhoneNumber;}
-    public ObjectProperty<Account> checkingAccountProperty() {return checkingAccount;}
-    public ObjectProperty<Account> updateAccountProperty() {return updateAccount;}
-    public ObjectProperty<LocalDate> creationDateProperty() {return creationDate;}
-    public StringProperty orderStatusProperty() {return orderStatus;}
+
+
+    public int getCustomerID() {return customerID;}
+
+    public void setCustomerID(int customerID) {this.customerID = customerID;}
+
+    public String getAddress() {return address;}
+
+    public void setAddress(String address) {this.address = address;}
+
+    public String getPhoneNumber() {return phoneNumber;}
+
+    public void setPhoneNumber(String phoneNumber) {this.phoneNumber = phoneNumber;}
+
+    public LocalDate getCreationDate() {return creationDate;}
+
+    public void setCreationDate(LocalDate creationDate) {this.creationDate = creationDate;}
 }

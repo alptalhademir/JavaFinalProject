@@ -3,21 +3,44 @@ package com.jmc.groceryapp.Models;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public abstract class User {
-    private final StringProperty FirstName;
-    private final StringProperty LastName;
-    private final StringProperty UserName;
-    private final StringProperty Password;
+public class User {
+    private int userID;
+    private String firstName;
+    private String lastName;
+    private String userName;
+    private String password;
+    private String userRole;
 
-    public User(String fName, String lName, String uName, String Password){
-        this.FirstName=new SimpleStringProperty(this, "FirstName", fName);
-        this.LastName=new SimpleStringProperty(this, "LastName", lName);
-        this.UserName=new SimpleStringProperty(this, "UserName", uName);
-        this.Password=new SimpleStringProperty(this, "Password", Password);
+
+    public User(String firstName, String lastName, String userName, String password, String userRole){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
+        this.userRole = userRole;
     }
 
-    public StringProperty FirstNameProperty() {return FirstName;}
-    public StringProperty LastNameProperty() {return LastName;}
-    public StringProperty UserNameProperty() {return UserName;}
-    public StringProperty PasswordProperty() {return Password;}
+    public String getUserID() {return String.valueOf(userID);}
+
+    public void setUserID(int userID) {this.userID = userID;}
+
+    public String getFirstName() {return firstName;}
+
+    public void setFirstName(String firstName) {this.firstName = firstName;}
+
+    public String getLastName() {return lastName;}
+
+    public void setLastName(String lastName) {this.lastName = lastName;}
+
+    public String getUserName() {return userName;}
+
+    public void setUserName(String userName) {this.userName = userName;}
+
+    public String getPassword() {return password;}
+
+    public void setPassword(String password) {this.password = password;}
+
+    public String getUserRole() {return userRole;}
+
+    public void setUserRole(String userRole) {this.userRole = userRole;}
 }
