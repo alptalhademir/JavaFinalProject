@@ -9,20 +9,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #E6E6E6;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.groceryapp.Controllers.SignupController">
-    <Pane prefHeight="540.0" prefWidth="398.0" style="-fx-background-color: #8AA96A;">
-        <ImageView fitHeight="510.0" fitWidth="364.0" layoutX="16.0" layoutY="15.0" opacity="0.45">
-            <Image url="@../Styles/basket.png" />
-         <effect>
-            <DropShadow />
-         </effect>
-        </ImageView>
-      <Label layoutX="20.0" layoutY="492.0" style="-fx-background-color: transparent;" text="&quot;Fresh Choices, Every Aisle – Your Grocery, Your Way!&quot;" textFill="#1a0000">
+    <Pane prefHeight="540.0" prefWidth="398.0" style="-fx-background-color: #8AA96A;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Label layoutX="22.0" layoutY="490.0" style="-fx-background-color: transparent;" text="&quot;Fresh Choices, Every Aisle – Your Grocery, Your Way!&quot;" textFill="#1a0000">
          <font>
             <Font name="Comic Sans MS Bold" size="13.0" />
          </font>
@@ -30,11 +26,20 @@
             <Reflection bottomOpacity="0.27" fraction="0.64" topOpacity="1.0" />
          </effect>
       </Label>
+        <VBox layoutX="18.0" layoutY="19.0" prefHeight="461.0" prefWidth="364.0">
+            <HBox prefHeight="58.0" prefWidth="364.0" VBox.vgrow="ALWAYS"/>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="360.0" prefWidth="364.0" VBox.vgrow="ALWAYS">
+                <ImageView fitHeight="442.0" fitWidth="362.0" opacity="0.45" HBox.hgrow="ALWAYS">
+                    <Image url="@../Styles/basket.png"/>
+                </ImageView>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="58.0" prefWidth="364.0" VBox.vgrow="ALWAYS"/>
+        </VBox>
       <effect>
          <DropShadow height="53.43" radius="23.2675" width="41.64" />
       </effect>
     </Pane>
-    <Pane layoutX="450.0" layoutY="15.0" prefHeight="510.0" prefWidth="450.0" style="-fx-background-color: #076A5A; -fx-background-radius: 40;">
+    <Pane layoutX="450.0" layoutY="15.0" prefHeight="510.0" prefWidth="450.0" style="-fx-background-color: #076A5A; -fx-background-radius: 40;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="15.0">
         <Text layoutX="93.0" layoutY="37.0" lineSpacing="4.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30; -fx-font-family: Comic Sans;" text="Sign Up!" textAlignment="CENTER" wrappingWidth="279.0">
             <font>
                 <Font name="Comic Sans MS Bold" size="13.0" />

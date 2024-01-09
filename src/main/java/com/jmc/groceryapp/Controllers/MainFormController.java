@@ -44,57 +44,87 @@ public class MainFormController implements Initializable {
     public AnchorPane reports_form;
     public Button SaveBtn;
     public AnchorPane about_us_form;
-    public TableView tableview;
-    public TableColumn col_num;
-    public TableColumn col_customerID;
-    public TableColumn col_totalPrice;
-    public TableColumn col_date;
-    public TableColumn col_status;
+    public Label hire_fire_lbl;
+    public Label username_lbl;
+    public TextField usernameTxt;
+    public Label carrier_lbl;
+    public TextField carrierTxt;
+    public Label password_lbl;
+    public TextField passwordTxt;
+    public Button hire_btn;
+    public Button fire_btn;
+    public Button cancel_changes_btn;
+    public Button save_btn;
+    public TableView carrier_tableview;
+    public TableColumn no_col;
+    public TableColumn carrierID_col;
+    public TableColumn username_col;
+    public TableColumn password_col;
+    public AnchorPane carriers_form;
+    public AnchorPane order_form;
     public Label totalOrderLabel;
     public Label completedOrderLabel;
     public Label pendingOrderLabel;
     public Label canceledOrderLabel;
     public Label newOrderLabel;
+    public TableView tableview;
+    public TableColumn col_num;
+    public TableColumn col_customerID;
+    public TableColumn col_totalQuantity;
+    public TableColumn col_totalPrice;
+    public TableColumn col_date;
+    public TableColumn col_status;
+    public TableColumn col_carrierID;
     public VBox DetailTable;
-    public TableColumn col_DPrice;
-    public TableColumn col_DQuantity;
-    public TableColumn col_DTotalPrice;
-    public AnchorPane order_form;
-    public TableColumn col_productID;
-    public TableColumn carrier_col;
-    public TableView orderdetails;
-    public TableColumn customerID_col;
-    public TableColumn pruductID_col;
-    public TableColumn number_col;
+    public TableView tableview_orderDetails;
+    public TableColumn col_num1;
+    public TableColumn col_customerID1;
+    public TableColumn col_totalQuantity1;
+    public TableColumn col_totalPrice1;
+    public TableColumn col_date1;
+    public TableColumn col_status1;
+    public TableColumn col_carrierID1;
 
     private Alert alert;
 
     public void switchForm(ActionEvent event) {
         if (event.getSource() == report_btn) {
-            home_form.setVisible(false);
             reports_form.setVisible(true);
+            home_form.setVisible(false);
             about_us_form.setVisible(false);
             order_form.setVisible(false);
+            carriers_form.setVisible(false);
         }
         if (event.getSource() == home_btn) {
             home_form.setVisible(true);
             reports_form.setVisible(false);
             about_us_form.setVisible(false);
             order_form.setVisible(false);
+            carriers_form.setVisible(false);
         }
         if (event.getSource() == aboutUs_btn) {
             about_us_form.setVisible(true);
             home_form.setVisible(false);
             reports_form.setVisible(false);
             order_form.setVisible(false);
+            carriers_form.setVisible(false);
         }
-        if(event.getSource() == order_btn) {
+       if(event.getSource() == order_btn) {
+            order_form.setVisible(true);
             about_us_form.setVisible(false);
             home_form.setVisible(false);
             reports_form.setVisible(false);
-            order_form.setVisible(true);
+            carriers_form.setVisible(false);
+        }
+        if(event.getSource() == carrier_btn) {
+            carriers_form.setVisible(true);
+            about_us_form.setVisible(false);
+            home_form.setVisible(false);
+            reports_form.setVisible(false);
+            order_form.setVisible(false);
         }
     }
+
 
     public void logout() {
         try {
@@ -107,7 +137,7 @@ public class MainFormController implements Initializable {
             if (option.isPresent() && option.get().equals(ButtonType.OK)) {
                 log_out_btn.getScene().getWindow().hide();
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Login.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Register.fxml"));
                 Parent root = loader.load();
 
                 // Create a new stage
