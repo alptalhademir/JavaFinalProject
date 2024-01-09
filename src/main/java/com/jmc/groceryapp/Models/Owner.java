@@ -12,6 +12,8 @@ public class Owner extends User {
     private final ObjectProperty<LocalDate> creationDate;
     private final StringProperty PurchaseStatus;
 
+    private int ownerID;
+
 
     public Owner( String fName, String lName, String uName, String Password,LocalDate cDate, String pStatus){
         super(fName, lName, uName, Password, "Owner");
@@ -24,4 +26,8 @@ public class Owner extends User {
 
     public ObjectProperty<LocalDate> creationDateProperty() {return creationDate;}
     public StringProperty PurchaseStatusProperty() {return PurchaseStatus;}
-}
+
+
+    public int getOwnerID() {return ownerID;}
+
+    public void setOwnerID(int ownerID) {this.ownerID = ownerID;}}
