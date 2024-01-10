@@ -8,19 +8,26 @@ import javafx.beans.property.StringProperty;
 import java.time.LocalDate;
 
 public class Carrier extends User {
-    private final StringProperty PhoneNumber;
-    private final ObjectProperty<LocalDate> creationDate;
+    private int carrierID;
+    private String phoneNumber;
+    private LocalDate creationDate;
 
-    public Carrier(String fName, String lName, String uName, String Password,String pNumber, LocalDate cDate){
-        super(fName, lName, uName, Password,"Carrier");
+    public Carrier(String firstName, String lastName, String userName, String password, String userRole,
+                   String phoneNumber, LocalDate creationDate){
+        super(firstName, lastName, userName, password, userRole);
 
-        this.PhoneNumber=new SimpleStringProperty(this, "PhoneNumber", pNumber);
-        this.creationDate=new SimpleObjectProperty<>(this, "creationDate", cDate);
+        this.phoneNumber = phoneNumber;
+        this.creationDate = creationDate;
 
 
     }
 
+    public int getCarrierID() {return carrierID;}
 
-    public StringProperty PhoneNumberProperty() {return PhoneNumber;}
-    public ObjectProperty<LocalDate> creationDateProperty() {return creationDate;}
+    public void setCarrierID(int carrierID) {this.carrierID = carrierID;}
+
+    public String getPhoneNumber() {return phoneNumber;}
+    public LocalDate getCreationDate() {return creationDate;}
+
+    public void setCreationDate(LocalDate creationDate) {this.creationDate = creationDate;}
 }
