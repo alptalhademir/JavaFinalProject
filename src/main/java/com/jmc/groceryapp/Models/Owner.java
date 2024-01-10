@@ -4,7 +4,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-
+import javafx.beans.property.IntegerProperty;
 import java.time.LocalDate;
 
 public class Owner extends User {
@@ -12,7 +12,7 @@ public class Owner extends User {
     private final ObjectProperty<LocalDate> creationDate;
     private final StringProperty PurchaseStatus;
 
-    private int ownerID;
+    private IntegerProperty ownerID;
 
 
     public Owner( String fName, String lName, String uName, String Password,LocalDate cDate, String pStatus){
@@ -28,6 +28,6 @@ public class Owner extends User {
     public StringProperty PurchaseStatusProperty() {return PurchaseStatus;}
 
 
-    public int getOwnerID() {return ownerID;}
+    public int getOwnerID() {return ownerID.get();}
 
-    public void setOwnerID(int ownerID) {this.ownerID = ownerID;}}
+    public void setOwnerID(int ownerID) {this.ownerID.set(ownerID);}}
