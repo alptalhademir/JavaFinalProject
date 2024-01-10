@@ -12,9 +12,7 @@ public class Customer extends User {
     private String address;
     private String phoneNumber;
     private LocalDate creationDate;
-
-    //private String orderStatus;
-
+    private ShoppingCart shoppingCart=null;
 
 
     public Customer(String firstName, String lastName, String userName, String password, String userRole,
@@ -42,4 +40,8 @@ public class Customer extends User {
     public LocalDate getCreationDate() {return creationDate;}
 
     public void setCreationDate(LocalDate creationDate) {this.creationDate = creationDate;}
+
+    public ShoppingCart getShoppingCart() {return shoppingCart;}
+
+    public void setShoppingCart(ShoppingCart shoppingCart) {this.shoppingCart = shoppingCart;}
 }
