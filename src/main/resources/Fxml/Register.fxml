@@ -40,7 +40,7 @@
          </left>
          <center>
             <AnchorPane prefHeight="540.0" prefWidth="551.0" BorderPane.alignment="CENTER">
-               <AnchorPane fx:id="sign_in_form" layoutX="-1.0" prefHeight="540.0" prefWidth="562.0" style="-fx-background-color: #F3ECE7;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <AnchorPane fx:id="sign_in_form" layoutX="-1.0" prefHeight="540.0" prefWidth="562.0" style="-fx-background-color: #F3ECE7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <effect>
                      <DropShadow />
                   </effect>
@@ -90,7 +90,7 @@
                         <HBox prefHeight="86.0" prefWidth="456.0" HBox.hgrow="ALWAYS">
                            <HBox prefHeight="113.0" prefWidth="767.0" HBox.hgrow="ALWAYS">
                               <HBox layoutX="265.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label alignment="BASELINE_LEFT" prefHeight="507.0" prefWidth="630.0" text="Email Address:" textFill="#650000" HBox.hgrow="ALWAYS">
+                              <Label alignment="BASELINE_LEFT" prefHeight="507.0" prefWidth="630.0" text="Username:" textFill="#650000" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
@@ -206,7 +206,7 @@
                      </HBox>
                   </VBox>
                </AnchorPane>
-               <AnchorPane fx:id="sign_up_form" prefHeight="540.0" prefWidth="560.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <AnchorPane fx:id="sign_up_form" prefHeight="540.0" prefWidth="560.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <HBox prefHeight="62.0" prefWidth="560.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <HBox prefHeight="56.0" prefWidth="560.0" HBox.hgrow="ALWAYS">
                         <HBox prefHeight="113.0" prefWidth="767.0" HBox.hgrow="ALWAYS">
@@ -248,27 +248,6 @@
                            </HBox>
                         </HBox>
                      </HBox>
-                     <HBox prefHeight="28.0" prefWidth="552.0" VBox.vgrow="ALWAYS">
-                        <HBox layoutX="466.0" layoutY="10.0" prefHeight="86.0" prefWidth="106.0" HBox.hgrow="ALWAYS" />
-                        <HBox prefHeight="86.0" prefWidth="456.0" HBox.hgrow="ALWAYS">
-                           <HBox prefHeight="113.0" prefWidth="767.0" HBox.hgrow="ALWAYS">
-                              <HBox layoutX="265.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label alignment="BASELINE_LEFT" prefHeight="507.0" prefWidth="630.0" text="Name:" textFill="#650000" HBox.hgrow="ALWAYS">
-                                 <font>
-                                    <Font size="17.0" />
-                                 </font>
-                                 <effect>
-                                    <DropShadow height="88.8" radius="47.585" width="103.54">
-                                       <color>
-                                          <Color red="0.42105263471603394" />
-                                       </color>
-                                    </DropShadow>
-                                 </effect>
-                              </Label>
-                           </HBox>
-                        </HBox>
-                        <HBox prefHeight="86.0" prefWidth="106.0" HBox.hgrow="ALWAYS" />
-                     </HBox>
                      <HBox prefHeight="41.0" prefWidth="552.0" VBox.vgrow="ALWAYS">
                         <effect>
                            <DropShadow />
@@ -287,27 +266,6 @@
                            </StackPane>
                            <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
                         </HBox>
-                     </HBox>
-                     <HBox layoutX="10.0" layoutY="50.0" prefHeight="28.0" prefWidth="552.0" VBox.vgrow="ALWAYS">
-                        <HBox layoutX="466.0" layoutY="10.0" prefHeight="86.0" prefWidth="106.0" HBox.hgrow="ALWAYS" />
-                        <HBox prefHeight="86.0" prefWidth="456.0" HBox.hgrow="ALWAYS">
-                           <HBox prefHeight="113.0" prefWidth="767.0" HBox.hgrow="ALWAYS">
-                              <HBox layoutX="265.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label alignment="BASELINE_LEFT" prefHeight="507.0" prefWidth="630.0" text="Surname:" textFill="#650000" HBox.hgrow="ALWAYS">
-                                 <font>
-                                    <Font size="17.0" />
-                                 </font>
-                                 <effect>
-                                    <DropShadow height="88.8" radius="47.585" width="103.54">
-                                       <color>
-                                          <Color red="0.42105263471603394" />
-                                       </color>
-                                    </DropShadow>
-                                 </effect>
-                              </Label>
-                           </HBox>
-                        </HBox>
-                        <HBox prefHeight="86.0" prefWidth="106.0" HBox.hgrow="ALWAYS" />
                      </HBox>
                      <HBox layoutX="10.0" layoutY="78.0" prefHeight="41.0" prefWidth="552.0" VBox.vgrow="ALWAYS">
                         <effect>
@@ -328,32 +286,30 @@
                            <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
                         </HBox>
                      </HBox>
-                     <HBox layoutX="10.0" layoutY="119.0" prefHeight="28.0" prefWidth="552.0" VBox.vgrow="ALWAYS">
-                        <HBox layoutX="466.0" layoutY="10.0" prefHeight="86.0" prefWidth="106.0" HBox.hgrow="ALWAYS" />
-                        <HBox prefHeight="86.0" prefWidth="456.0" HBox.hgrow="ALWAYS">
-                           <HBox prefHeight="113.0" prefWidth="767.0" HBox.hgrow="ALWAYS">
-                              <HBox layoutX="265.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label alignment="BASELINE_LEFT" prefHeight="507.0" prefWidth="630.0" text="Phone Number:" textFill="#650000" HBox.hgrow="ALWAYS">
+                     <HBox layoutX="10.0" layoutY="114.0" prefHeight="63.0" prefWidth="552.0">
+                        <effect>
+                           <DropShadow />
+                        </effect>
+                        <HBox prefHeight="76.0" prefWidth="533.0" style="-fx-background-color: #38675D;" HBox.hgrow="ALWAYS">
+                           <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                           <StackPane prefHeight="40.0" prefWidth="359.0" HBox.hgrow="NEVER">
+                              <TextField fx:id="username_signUp_field" prefHeight="45.0" prefWidth="287.0" promptText="Enter Username" style="-fx-background-radius: 30px;" StackPane.alignment="CENTER_LEFT">
+                                 <padding>
+                                    <Insets left="15.0" right="35.0" />
+                                 </padding>
                                  <font>
-                                    <Font size="17.0" />
+                                    <Font size="15.0" />
                                  </font>
-                                 <effect>
-                                    <DropShadow height="88.8" radius="47.585" width="103.54">
-                                       <color>
-                                          <Color red="0.42105263471603394" />
-                                       </color>
-                                    </DropShadow>
-                                 </effect>
-                              </Label>
-                           </HBox>
+                              </TextField>
+                           </StackPane>
+                           <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
                         </HBox>
-                        <HBox prefHeight="86.0" prefWidth="106.0" HBox.hgrow="ALWAYS" />
                      </HBox>
                      <HBox layoutX="10.0" layoutY="147.0" prefHeight="41.0" prefWidth="552.0" VBox.vgrow="ALWAYS">
                         <effect>
                            <DropShadow />
                         </effect>
-                        <HBox prefHeight="76.0" prefWidth="533.0" style="-fx-background-color: #38675D;" HBox.hgrow="ALWAYS">
+                        <HBox prefHeight="76.0" prefWidth="533.0" HBox.hgrow="ALWAYS">
                            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
                            <StackPane prefHeight="40.0" prefWidth="359.0" HBox.hgrow="NEVER">
                               <TextField fx:id="phoneNumber_signUp_field" prefHeight="45.0" prefWidth="287.0" promptText="Enter Phone Number" style="-fx-background-radius: 30px;" StackPane.alignment="CENTER_LEFT">
@@ -368,35 +324,14 @@
                            <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
                         </HBox>
                      </HBox>
-                     <HBox layoutX="10.0" layoutY="188.0" prefHeight="28.0" prefWidth="552.0" VBox.vgrow="ALWAYS">
-                        <HBox layoutX="466.0" layoutY="10.0" prefHeight="86.0" prefWidth="106.0" HBox.hgrow="ALWAYS" />
-                        <HBox prefHeight="86.0" prefWidth="456.0" HBox.hgrow="ALWAYS">
-                           <HBox prefHeight="113.0" prefWidth="767.0" HBox.hgrow="ALWAYS">
-                              <HBox layoutX="265.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label alignment="BASELINE_LEFT" prefHeight="507.0" prefWidth="630.0" text="Email Address:" textFill="#650000" HBox.hgrow="ALWAYS">
-                                 <font>
-                                    <Font size="17.0" />
-                                 </font>
-                                 <effect>
-                                    <DropShadow height="88.8" radius="47.585" width="103.54">
-                                       <color>
-                                          <Color red="0.42105263471603394" />
-                                       </color>
-                                    </DropShadow>
-                                 </effect>
-                              </Label>
-                           </HBox>
-                        </HBox>
-                        <HBox prefHeight="86.0" prefWidth="106.0" HBox.hgrow="ALWAYS" />
-                     </HBox>
                      <HBox layoutX="10.0" layoutY="216.0" prefHeight="41.0" prefWidth="552.0" VBox.vgrow="ALWAYS">
                         <effect>
                            <DropShadow />
                         </effect>
-                        <HBox prefHeight="76.0" prefWidth="533.0" HBox.hgrow="ALWAYS">
+                        <HBox prefHeight="76.0" prefWidth="533.0" style="-fx-background-color: #38675D;" HBox.hgrow="ALWAYS">
                            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
                            <StackPane prefHeight="40.0" prefWidth="359.0" HBox.hgrow="NEVER">
-                              <TextField fx:id="email_field" prefHeight="45.0" prefWidth="357.0" promptText="Enter Email Address" style="-fx-background-radius: 30px;" StackPane.alignment="CENTER_LEFT">
+                              <TextField fx:id="address_field" prefHeight="45.0" prefWidth="357.0" promptText="Enter Address" style="-fx-background-radius: 30px;" StackPane.alignment="CENTER_LEFT">
                                  <padding>
                                     <Insets left="15.0" right="35.0" />
                                  </padding>
@@ -408,32 +343,11 @@
                            <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
                         </HBox>
                      </HBox>
-                     <HBox prefHeight="26.0" prefWidth="552.0" VBox.vgrow="ALWAYS">
-                        <HBox layoutX="466.0" layoutY="10.0" prefHeight="26.0" prefWidth="63.0" HBox.hgrow="ALWAYS" />
-                        <HBox prefHeight="50.0" prefWidth="421.0" HBox.hgrow="ALWAYS">
-                           <HBox prefHeight="113.0" prefWidth="767.0" HBox.hgrow="ALWAYS">
-                              <HBox layoutX="265.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label alignment="BOTTOM_LEFT" prefHeight="45.0" prefWidth="651.0" text="Password:" textFill="#650000" HBox.hgrow="ALWAYS">
-                                 <font>
-                                    <Font size="17.0" />
-                                 </font>
-                                 <effect>
-                                    <DropShadow height="88.8" radius="47.585" width="103.54">
-                                       <color>
-                                          <Color red="0.42105263471603394" />
-                                       </color>
-                                    </DropShadow>
-                                 </effect>
-                              </Label>
-                           </HBox>
-                        </HBox>
-                        <HBox prefHeight="45.0" prefWidth="62.0" HBox.hgrow="ALWAYS" />
-                     </HBox>
                      <HBox prefHeight="35.0" prefWidth="552.0" VBox.vgrow="ALWAYS">
                         <effect>
                            <DropShadow />
                         </effect>
-                        <HBox prefHeight="76.0" prefWidth="533.0" style="-fx-background-color: #38675D;" HBox.hgrow="ALWAYS">
+                        <HBox prefHeight="76.0" prefWidth="533.0" HBox.hgrow="ALWAYS">
                            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
                            <StackPane prefHeight="65.0" prefWidth="360.0" HBox.hgrow="NEVER">
                               <TextField fx:id="password_signUp_TxtField" prefHeight="45.0" prefWidth="275.0" style="-fx-background-radius: 30px;" StackPane.alignment="CENTER_LEFT">
@@ -459,64 +373,13 @@
                            <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
                         </HBox>
                      </HBox>
-                     <HBox layoutX="10.0" layoutY="315.0" prefHeight="26.0" prefWidth="552.0" VBox.vgrow="ALWAYS">
-                        <HBox layoutX="466.0" layoutY="10.0" prefHeight="26.0" prefWidth="63.0" HBox.hgrow="ALWAYS" />
-                        <HBox prefHeight="50.0" prefWidth="421.0" HBox.hgrow="ALWAYS">
-                           <HBox prefHeight="113.0" prefWidth="767.0" HBox.hgrow="ALWAYS">
-                              <HBox layoutX="265.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label alignment="BOTTOM_LEFT" prefHeight="45.0" prefWidth="651.0" text="Confirm Password:" textFill="#650000" HBox.hgrow="ALWAYS">
-                                 <font>
-                                    <Font size="17.0" />
-                                 </font>
-                                 <effect>
-                                    <DropShadow height="88.8" radius="47.585" width="103.54">
-                                       <color>
-                                          <Color red="0.42105263471603394" />
-                                       </color>
-                                    </DropShadow>
-                                 </effect>
-                              </Label>
-                           </HBox>
-                        </HBox>
-                        <HBox prefHeight="45.0" prefWidth="62.0" HBox.hgrow="ALWAYS" />
-                     </HBox>
-                     <HBox layoutX="10.0" layoutY="341.0" prefHeight="35.0" prefWidth="552.0" VBox.vgrow="ALWAYS">
-                        <effect>
-                           <DropShadow />
-                        </effect>
-                        <HBox prefHeight="76.0" prefWidth="533.0" HBox.hgrow="ALWAYS">
-                           <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
-                           <StackPane prefHeight="65.0" prefWidth="360.0" HBox.hgrow="NEVER">
-                              <TextField fx:id="confirmPasswordTxtField" prefHeight="45.0" prefWidth="275.0" style="-fx-background-radius: 30px;" StackPane.alignment="CENTER_LEFT">
-                                 <padding>
-                                    <Insets left="15.0" right="35.0" />
-                                 </padding>
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </TextField>
-                              <PasswordField fx:id="confirmPasswordField" prefHeight="45.0" prefWidth="340.0" promptText="Confirm Password" style="-fx-background-radius: 30px;" styleClass="shadow" StackPane.alignment="CENTER_LEFT">
-                                 <padding>
-                                    <Insets left="15.0" right="35.0" />
-                                 </padding>
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                                 <effect>
-                                    <DropShadow />
-                                 </effect>
-                              </PasswordField>
-                           </StackPane>
-                           <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
-                        </HBox>
-                     </HBox>
                      <HBox prefHeight="65.0" prefWidth="1102.0" VBox.vgrow="ALWAYS">
                         <HBox prefHeight="76.0" prefWidth="533.0" HBox.hgrow="ALWAYS">
                            <StackPane prefHeight="39.0" prefWidth="463.0" HBox.hgrow="ALWAYS">
                               <effect>
                                  <DropShadow />
                               </effect>
-                              <Button fx:id="sign_up_btn" mnemonicParsing="false" onAction="#signUp_btn" prefHeight="30.0" prefWidth="218.0" style="-fx-background-radius: 20; -fx-background-color: #537B58;" text="Sign  Up!">
+                              <Button fx:id="sign_up_btn" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="30.0" prefWidth="218.0" style="-fx-background-radius: 20; -fx-background-color: #537B58;" text="Sign  Up!">
                                  <effect>
                                     <DropShadow />
                                  </effect>

@@ -10,4 +10,7 @@ public interface UserDAO {
     void updateUser(User user);
 
     void deleteUser(User user);
+
+    boolean doesUsernameExist(String username);
+
 }

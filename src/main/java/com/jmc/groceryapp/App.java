@@ -13,7 +13,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage)  {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/MainForm.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Register.fxml")));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setMinHeight(540);

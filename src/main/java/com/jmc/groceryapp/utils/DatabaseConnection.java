@@ -59,8 +59,6 @@ public class DatabaseConnection {
         disconnect();
     }
 
-    public Connection getConnection(){
-        return connection;
-    }
+    public Connection getConnection(){return connection;}
 
 }

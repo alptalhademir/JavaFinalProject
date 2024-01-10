@@ -11,4 +11,6 @@ public interface CustomerDAO extends UserDAO {
 
     void deleteCustomer(Customer customer);
 
+    boolean doesUsernameExist(String username);
+
 }

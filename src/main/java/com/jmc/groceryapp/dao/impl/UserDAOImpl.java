@@ -116,4 +116,29 @@ public class UserDAOImpl implements UserDAO {
             // error handling part
         }
     }
+
+    @Override
+    public boolean doesUsernameExist(String username) {
+        boolean usernameExists = false;
+        try {
+            databaseConnection.connect();
+            Connection connection = databaseConnection.getConnection();
+            PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM user_info WHERE UserName = ?");
+            statement.setString(1, username);
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                usernameExists = count > 0;
+            }
+
+            resultSet.close();
+            statement.close();
+            databaseConnection.disconnect();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return usernameExists;
+    }
+
 }
