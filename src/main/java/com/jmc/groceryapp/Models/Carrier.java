@@ -14,7 +14,7 @@ public class Carrier extends User {
 
     public Carrier(String firstName, String lastName, String userName, String password, String userRole,
                    String phoneNumber, LocalDate creationDate){
-        super(fName, lName, uName, Password,"Carrier");
+        super(firstName, lastName, userName, password, userRole);
 
         this.phoneNumber = phoneNumber;
         this.creationDate = creationDate;
@@ -26,7 +26,7 @@ public class Carrier extends User {
 
     public void setCarrierID(int carrierID) {this.carrierID = carrierID;}
 
-
+    public String getPhoneNumber() {return phoneNumber;}
     public LocalDate getCreationDate() {return creationDate;}
 
     public void setCreationDate(LocalDate creationDate) {this.creationDate = creationDate;}
