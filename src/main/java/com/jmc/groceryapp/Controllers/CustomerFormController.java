@@ -91,6 +91,43 @@ public class CustomerFormController implements Initializable {
     public Button confirm_order_btn;
     public Button cancel_order_btn;
 
+    public Label username;
+
+    public void displayUsername() {
+
+        String user = data.username;
+        user = user.substring(0, 1).toUpperCase() + user.substring(1);
+        username.setText(user);
+        username_lbl.setText(user);
+        username_addressChange_lbl.setText(user);
+        username_phoneChange_lbl.setText(user);
+    }
+    public void displayAddress() {
+        String user = data.address;
+
+        if (user != null) {
+            user = user.substring(0, 1).toUpperCase() + user.substring(1);
+            address_lbl.setText(user);
+            address_addressChange_lbl.setText(user);
+            address_phoneChange_lbl.setText(user);
+        } else {
+            address_lbl.setText("N/A");
+            address_addressChange_lbl.setText(user);
+            address_phoneChange_lbl.setText(user);
+        }
+    }
+
+    public void displayPhoneNumber() {
+        String user = data.phoneNumber;
+
+        if (user != null) {
+            user = user.substring(0, 1).toUpperCase() + user.substring(1);
+            phone_lbl.setText(user);
+        } else {
+
+            phone_lbl.setText("N/A");
+        }
+    }
 
     public void switchForm(ActionEvent event) {
         if(event.getSource() == home_btn)
@@ -212,10 +249,9 @@ public class CustomerFormController implements Initializable {
         }
     }
 
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        displayUsername();
+        displayAddress();
     }
 }

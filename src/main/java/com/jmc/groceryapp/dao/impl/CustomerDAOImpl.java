@@ -7,6 +7,7 @@ import com.jmc.groceryapp.utils.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CustomerDAOImpl extends UserDAOImpl implements CustomerDAO {
 
@@ -131,4 +132,29 @@ public class CustomerDAOImpl extends UserDAOImpl implements CustomerDAO {
             // error handling part
         }
     }
+
+    @Override
+    public boolean doesUsernameExist(String username) {
+        boolean usernameExists = false;
+        try {
+            databaseConnection.connect();
+            Connection connection = databaseConnection.getConnection();
+            PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM customer_info WHERE UserName = ?");
+            statement.setString(1, username);
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                usernameExists = count > 0;
+            }
+
+            resultSet.close();
+            statement.close();
+            databaseConnection.disconnect();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return usernameExists;
+    }
+
 }

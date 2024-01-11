@@ -96,4 +96,53 @@ public class SignupController implements Initializable {
         userDao.addUser(customer);
         customerDAO.addCustomer(customer);
     }
+
+
+      /*public void signUp_btn(ActionEvent event) {
+        String name = name_field.getText();
+        String surname = surname_field.getText();
+        String phoneNumber = phoneNumber_signUp_field.getText();
+        String email = email_field.getText();
+        String password = password_signUpField.getText();
+
+        if (email.isEmpty() || password.isEmpty() || name.isEmpty() || surname.isEmpty() || phoneNumber.isEmpty()) {
+            showErrorAlert("Please Fill All Blank Fields");
+        } else if (password.length() < 8) {
+            showErrorAlert("Your password should be at least 8 characters long");
+        } else {
+            handleSubmitButtonAction();
+
+            if (registrationSuccess) {
+                showInfoAlert();
+
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CustomerForm.fxml"));
+                    Parent root = loader.load();
+
+                    signUpStage = new Stage();
+                    signUpStage.setTitle("Main Form");
+                    signUpStage.initModality(Modality.APPLICATION_MODAL);
+                    signUpStage.setScene(new Scene(root));
+
+                    signUpStage.show();
+
+                } catch (IOException e) {
+                    showErrorAlert("Error loading CustomerForm.fxml");
+                    e.printStackTrace(); // Handle or log the exception appropriately
+                }
+
+                // Clear input fields
+                email_field.clear();
+                password_signUpField.clear();
+                confirmPasswordField.clear();
+            } else {
+                showErrorAlert("Registration failed. Please try again.");
+            }
+        }
+    }*/
+
+
+    /*private boolean registerUser(String email, String password) {
+        return true;
+    }*/
 }

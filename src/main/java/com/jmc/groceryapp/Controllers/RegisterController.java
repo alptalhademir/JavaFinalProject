@@ -1,8 +1,15 @@
 package com.jmc.groceryapp.Controllers;
 
+import com.jmc.groceryapp.Models.Customer;
+import com.jmc.groceryapp.dao.CustomerDAO;
+import com.jmc.groceryapp.dao.UserDAO;
+import com.jmc.groceryapp.dao.impl.CustomerDAOImpl;
+import com.jmc.groceryapp.dao.impl.UserDAOImpl;
+import com.jmc.groceryapp.utils.DatabaseConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -12,9 +19,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class RegisterController implements Initializable {
@@ -27,16 +34,21 @@ public class RegisterController implements Initializable {
     public TextField name_field;
     public TextField surname_field;
     public TextField phoneNumber_signUp_field;
-    public TextField email_field;
     public TextField password_signUp_TxtField;
     public PasswordField password_signUpField;
-    public TextField confirmPasswordTxtField;
-    public PasswordField confirmPasswordField;
     public Button sign_up_btn;
     public Button already_account_btn;
     public TextField password_signIn_TxtField;
+    public TextField address_field;
+    public TextField username_signUp_field;
+    private UserDAO userDao;
+    private CustomerDAO customerDAO;
+    private final DatabaseConnection dataBaseConnection= new DatabaseConnection();
 
-    private Stage signUpStage;
+    public RegisterController() {
+        this.userDao = new UserDAOImpl(dataBaseConnection);
+        this.customerDAO = new CustomerDAOImpl(dataBaseConnection, dataBaseConnection);
+    }
 
     public void switchForm(ActionEvent event) {
         if (event.getSource() == already_account_btn) {
@@ -49,87 +61,111 @@ public class RegisterController implements Initializable {
         }
     }
 
-    public void signUp_btn(ActionEvent event) throws IOException {
-        String name = name_field.getText();
-        String surname = surname_field.getText();
-        String phoneNumber = phoneNumber_signUp_field.getText();
-        String email = email_field.getText();
+    public void handleSubmitButtonAction(ActionEvent event) throws IOException {
+        String firstName = name_field.getText();
+        String lastName = surname_field.getText();
+        String userName = username_signUp_field.getText();
+        String address = address_field.getText();
         String password = password_signUpField.getText();
+        String phoneNumber = phoneNumber_signUp_field.getText();
 
-        if (email.isEmpty() || password.isEmpty()) {
+        if (firstName.isEmpty() || password.isEmpty() || lastName.isEmpty() || userName.isEmpty() || phoneNumber.isEmpty() || address.isEmpty()) {
             showErrorAlert("Please Fill All Blank Fields");
-        } else {
-            if (password.length() < 8) {
-                showErrorAlert("Your password should be at least 8 characters long");
-            } else {
+        }
+        else if (password.length() < 8) {
+            showErrorAlert("Your password should be at least 8 characters long");
+        }
+        /*else if (!password.matches(".*[a-z].*") || !password.matches(".*[A-Z].*")) {
+            showErrorAlert("Your password should include both uppercase and lowercase characters");
+        }
+        else if (!password.matches(".*\\d.*") || !password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*")) {
+            showErrorAlert("Your password should include numbers and special characters");
+        }*/
+        else {
+            try {
 
-                boolean registrationSuccess = registerUser(email, password);
-
-                if (registrationSuccess) {
-                    showInfoAlert("Successfully Registered!");
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CustomerForm.fxml"));
-                    Parent root = loader.load();
-
-                    signUpStage = new Stage();
-                    signUpStage.setTitle("Main Form");
-                    signUpStage.initModality(Modality.APPLICATION_MODAL);
-                    signUpStage.setScene(new Scene(root));
-
-
-                    signUpStage.show();
-                } else {
-                    showErrorAlert("Registration failed. Please try again.");
+                if (userDao.doesUsernameExist(userName)) {
+                    showErrorAlert("Username is already taken");
+                    return;
                 }
 
-                // Clear input fields
-                email_field.clear();
-                password_signUpField.clear();
-                confirmPasswordField.clear();
+                LocalDate creationDate = LocalDate.now();
+                Customer customer = new Customer(firstName, lastName, userName, password, "Customer", address, phoneNumber, creationDate);
+                userDao.addUser(customer);
+                customerDAO.addCustomer(customer);
+
+                data.username = userName;
+                data.address = address;
+                data.phoneNumber = phoneNumber;
+
+                showInfoAlert();
+
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CustomerForm.fxml"));
+                Parent root = loader.load();
+
+                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                currentStage.close();
+
+                Stage customerFormStage = new Stage();
+                customerFormStage.setTitle("Customer Form");
+                customerFormStage.initModality(Modality.APPLICATION_MODAL);
+                customerFormStage.setScene(new Scene(root));
+                customerFormStage.show();
+
+            } catch (Exception e) {
+                showErrorAlert("An error occurred. Please try again.");
+                e.printStackTrace();
             }
         }
+
+        name_field.clear();
+        surname_field.clear();
+        username_signUp_field.clear();
+        address_field.clear();
+        password_signUpField.clear();
+        phoneNumber_signUp_field.clear();
     }
 
     public void logIn_btn(ActionEvent event) throws IOException {
-        String email = username_field.getText();
-        String password = password_signUpField.getText();
+        String username = username_field.getText();
+        String password = passwordField.getText();
 
-        if (email.isEmpty() || password.isEmpty()) {
+        if (username.isEmpty() || password.isEmpty()) {
             showErrorAlert("Please Fill All Blank Fields");
         } else {
             if (password.length() < 8) {
                 showErrorAlert("Your password should be at least 8 characters long");
             } else {
+                try {
 
-                boolean registrationSuccess = registerUser(email, password);
+                    if (!userDao.doesUsernameExist(username)) {
+                        showErrorAlert("Check your username or password");
+                        return;
+                    }
 
-                if (registrationSuccess) {
-                    showInfoAlert("Successfully Registered!");
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MainForm.fxml"));
+                    data.username = username;
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CustomerForm.fxml"));
                     Parent root = loader.load();
 
-                    signUpStage = new Stage();
-                    signUpStage.setTitle("Main Form");
-                    signUpStage.initModality(Modality.APPLICATION_MODAL);
-                    signUpStage.setScene(new Scene(root));
+                    Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    currentStage.close();
 
+                    Stage customerFormStage = new Stage();
+                    customerFormStage.setTitle("Customer Form");
+                    customerFormStage.initModality(Modality.APPLICATION_MODAL);
+                    customerFormStage.setScene(new Scene(root));
+                    customerFormStage.show();
 
-                    signUpStage.show();
-                } else {
-                    showErrorAlert("Registration failed. Please try again.");
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
-                // Clear input fields
-                email_field.clear();
-                password_signUpField.clear();
-                confirmPasswordField.clear();
             }
         }
+        username_field.clear();
+        passwordField.clear();
     }
-
-    private boolean registerUser(String email, String password) {
-        return true;
-    }
-
 
     private void showErrorAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -139,11 +175,11 @@ public class RegisterController implements Initializable {
         alert.showAndWait();
     }
 
-    private void showInfoAlert(String message) {
+    private void showInfoAlert() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Message");
         alert.setHeaderText(null);
-        alert.setContentText(message);
+        alert.setContentText("Successfully Registered!");
         alert.showAndWait();
     }
 
@@ -152,3 +188,4 @@ public class RegisterController implements Initializable {
 
     }
 }
+
