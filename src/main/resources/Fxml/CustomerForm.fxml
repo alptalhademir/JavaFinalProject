@@ -383,7 +383,7 @@
                      </top>
                   </BorderPane>
                </AnchorPane>
-               <AnchorPane fx:id="account_form" prefHeight="584.0" prefWidth="769.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <AnchorPane fx:id="account_form" prefHeight="584.0" prefWidth="769.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <BorderPane layoutX="-5.0" layoutY="145.0" prefHeight="584.0" prefWidth="774.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <top>
                         <VBox prefHeight="78.0" prefWidth="769.0" BorderPane.alignment="CENTER">
@@ -425,7 +425,7 @@
                                  </Label>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="387.0" HBox.hgrow="ALWAYS">
-                                 <Label fx:id="phone_lbl" prefHeight="55.0" prefWidth="387.0" HBox.hgrow="ALWAYS">
+                                 <Label fx:id="phone_label" prefHeight="55.0" prefWidth="387.0" HBox.hgrow="ALWAYS">
                                     <font>
                                        <Font size="25.0" />
                                     </font></Label>
@@ -915,7 +915,7 @@
                      </center>
                   </BorderPane>
                </AnchorPane>
-               <AnchorPane fx:id="address_change_form" layoutX="4.0" layoutY="10.0" prefHeight="584.0" prefWidth="764.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="10.0">
+               <AnchorPane fx:id="address_change_form" layoutX="4.0" layoutY="10.0" prefHeight="584.0" prefWidth="764.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="10.0">
                   <BorderPane layoutX="-5.0" layoutY="145.0" prefHeight="584.0" prefWidth="774.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <top>
                         <VBox prefHeight="78.0" prefWidth="769.0" BorderPane.alignment="CENTER">

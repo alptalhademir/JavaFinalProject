@@ -6,7 +6,10 @@ public class data {
     public static String address;
     public static String phoneNumber;
 
-    public String getUsername() {
+    public static String path;
+
+
+    public static String getUsername() {
         return username;
     }
 
@@ -28,6 +31,15 @@ public class data {
 
     public void setPhoneNumber(String phoneNumber) {
         data.phoneNumber = phoneNumber;
+    }
+
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
 }
