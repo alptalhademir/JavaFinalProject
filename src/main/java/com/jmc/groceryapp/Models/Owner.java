@@ -4,13 +4,15 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-
+import javafx.beans.property.IntegerProperty;
 import java.time.LocalDate;
 
 public class Owner extends User {
 
     private final ObjectProperty<LocalDate> creationDate;
     private final StringProperty PurchaseStatus;
+
+    private IntegerProperty ownerID;
 
 
     public Owner( String fName, String lName, String uName, String Password,LocalDate cDate, String pStatus){
@@ -24,4 +26,8 @@ public class Owner extends User {
 
     public ObjectProperty<LocalDate> creationDateProperty() {return creationDate;}
     public StringProperty PurchaseStatusProperty() {return PurchaseStatus;}
-}
+
+
+    public int getOwnerID() {return ownerID.get();}
+
+    public void setOwnerID(int ownerID) {this.ownerID.set(ownerID);}}
