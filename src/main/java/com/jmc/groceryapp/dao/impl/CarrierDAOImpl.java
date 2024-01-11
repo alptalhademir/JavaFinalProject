@@ -94,7 +94,7 @@ public class CarrierDAOImpl extends UserDAOImpl implements CarrierDAO {
             statement.setString(3, carrier.getUserName());
             statement.setString(4, carrier.getPassword());
             statement.setString(5, carrier.getUserRole());
-            statement.setInt(9, carrier.getCarrierID());
+            statement.setInt(6, carrier.getCarrierID());
 
             statement.executeUpdate();
 
