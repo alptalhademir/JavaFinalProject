@@ -1,47 +1,47 @@
 package com.jmc.groceryapp.Models;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 import java.time.LocalDate;
 
 public class Customer extends User {
-    private int customerID;
-    private String address;
-    private String phoneNumber;
-    private LocalDate creationDate;
-    private ShoppingCart shoppingCart=null;
+    private final IntegerProperty customerID = new SimpleIntegerProperty();
+    private final StringProperty address = new SimpleStringProperty();
+    private final StringProperty phoneNumber = new SimpleStringProperty();
+    private final ObjectProperty<LocalDate> creationDate = new SimpleObjectProperty<>();
+
+
+
 
 
     public Customer(String firstName, String lastName, String userName, String password, String userRole,
-                    String address, String phoneNumber, LocalDate creationDate) {
+                    String address, String phoneNumber, LocalDate creationDate, Integer customerID) {
         super(firstName, lastName, userName, password, userRole);
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.creationDate = creationDate;
+
+
+        this.address.set(address);
+        this.phoneNumber.set(phoneNumber);
+        this.creationDate.set(creationDate);
+        this.customerID.set(customerID);
+
+
     }
 
 
 
-    public int getCustomerID() {return customerID;}
+    public IntegerProperty getCustomerID() {return customerID;}
 
-    public void setCustomerID(int customerID) {this.customerID = customerID;}
+    public void setCustomerID(int customerID) {this.customerID.set(customerID);}
 
-    public String getAddress() {return address;}
+    public StringProperty getAddress() {return address;}
 
-    public void setAddress(String address) {this.address = address;}
+    public void setAddress(String address) {this.address.set(address);}
 
-    public String getPhoneNumber() {return phoneNumber;}
+    public StringProperty getPhoneNumber() {return phoneNumber;}
 
-    public void setPhoneNumber(String phoneNumber) {this.phoneNumber = phoneNumber;}
+    public void setPhoneNumber(String phoneNumber) {this.phoneNumber.set(phoneNumber);}
 
-    public LocalDate getCreationDate() {return creationDate;}
+    public ObjectProperty<LocalDate> getCreationDate() {return creationDate;}
 
-    public void setCreationDate(LocalDate creationDate) {this.creationDate = creationDate;}
-
-    public ShoppingCart getShoppingCart() {return shoppingCart;}
-
-    public void setShoppingCart(ShoppingCart shoppingCart) {this.shoppingCart = shoppingCart;}
+    public void setCreationDate(LocalDate creationDate) {this.creationDate.set(creationDate);}
 }
