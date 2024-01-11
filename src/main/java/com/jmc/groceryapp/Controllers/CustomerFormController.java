@@ -1,5 +1,10 @@
 package com.jmc.groceryapp.Controllers;
 
+import com.jmc.groceryapp.dao.CustomerDAO;
+import com.jmc.groceryapp.dao.UserDAO;
+import com.jmc.groceryapp.dao.impl.CustomerDAOImpl;
+import com.jmc.groceryapp.dao.impl.UserDAOImpl;
+import com.jmc.groceryapp.utils.DatabaseConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,8 +21,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CustomerFormController implements Initializable {
-
-
+    
     public Button home_btn;
     public Button cart_btn;
     public Button order_btn;
@@ -92,7 +96,14 @@ public class CustomerFormController implements Initializable {
     public Button cancel_order_btn;
 
     public Label username;
+    private UserDAO userDao;
+    private CustomerDAO customerDAO;
+    private final DatabaseConnection dataBaseConnection= new DatabaseConnection();
 
+    public CustomerFormController() {
+        this.userDao = new UserDAOImpl(dataBaseConnection);
+        this.customerDAO = new CustomerDAOImpl(dataBaseConnection, dataBaseConnection);
+    }
     public void displayUsername() {
 
         String user = data.username;
@@ -247,6 +258,14 @@ public class CustomerFormController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showErrorAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error Message");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     @Override

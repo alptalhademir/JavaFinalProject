@@ -3,11 +3,15 @@ package com.jmc.groceryapp.dao.impl;
 import com.jmc.groceryapp.Models.Customer;
 import com.jmc.groceryapp.dao.CustomerDAO;
 import com.jmc.groceryapp.utils.DatabaseConnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class CustomerDAOImpl extends UserDAOImpl implements CustomerDAO {
 
@@ -155,6 +159,87 @@ public class CustomerDAOImpl extends UserDAOImpl implements CustomerDAO {
             e.printStackTrace();
         }
         return usernameExists;
+    }
+
+    @Override
+    public int getTotalCustomers() {
+        int totalCustomers = 0;
+        try {
+            databaseConnection.connect();
+            Connection connection = databaseConnection.getConnection();
+            PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM customer_info");
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                totalCustomers = resultSet.getInt(1);
+            }
+
+            resultSet.close();
+            statement.close();
+            databaseConnection.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return totalCustomers;
+    }
+
+
+    public LineChart<String, Number> createLineChart() {
+        CategoryAxis xAxis = new CategoryAxis();
+        NumberAxis yAxis = new NumberAxis();
+        LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
+
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Total Customers");
+
+        series.getData().add(new XYChart.Data<>(String.valueOf(LocalDate.now()), getTotalCustomers()));
+
+        ObservableList<XYChart.Series<String, Number>> data = FXCollections.observableArrayList(series);
+        lineChart.setData(data);
+
+        return lineChart;
+    }
+
+    @Override
+    public int getTotalCustomersByAddress() {
+        int totalCustomers = 0;
+        try {
+            databaseConnection.connect();
+            Connection connection = databaseConnection.getConnection();
+            // Assuming 'address' is the name of the column storing addresses
+            PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM customer_info WHERE address = ?");
+
+
+            statement.setString(1, "İstanbul");
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                totalCustomers = resultSet.getInt(1);
+            }
+
+            resultSet.close();
+            statement.close();
+            databaseConnection.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return totalCustomers;
+    }
+
+    public LineChart<String, Number> createLineChartAddress() {
+        CategoryAxis xAxis = new CategoryAxis();
+        NumberAxis yAxis = new NumberAxis();
+        LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
+
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Customers reside in Istanbul" + " = " + " " + getTotalCustomersByAddress());
+
+        series.getData().add(new XYChart.Data<>("İstanbul", getTotalCustomersByAddress()));
+
+        ObservableList<XYChart.Series<String, Number>> data = FXCollections.observableArrayList(series);
+        lineChart.setData(data);
+
+        return lineChart;
     }
 
 }

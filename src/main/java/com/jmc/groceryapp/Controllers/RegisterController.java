@@ -70,7 +70,7 @@ public class RegisterController implements Initializable {
         String phoneNumber = phoneNumber_signUp_field.getText();
 
         if (firstName.isEmpty() || password.isEmpty() || lastName.isEmpty() || userName.isEmpty() || phoneNumber.isEmpty() || address.isEmpty()) {
-            showErrorAlert("Please Fill All Blank Fields");
+            showErrorAlert("Please Fill All Blank Fields!");
         }
         else if (password.length() < 8) {
             showErrorAlert("Your password should be at least 8 characters long");
@@ -96,7 +96,6 @@ public class RegisterController implements Initializable {
 
                 data.username = userName;
                 data.address = address;
-                data.phoneNumber = phoneNumber;
 
                 showInfoAlert();
 
@@ -143,20 +142,36 @@ public class RegisterController implements Initializable {
                         showErrorAlert("Check your username or password");
                         return;
                     }
+                    else if(username.equals("admin"))
+                    {
+                        data.username = username;
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MainForm.fxml"));
+                        Parent root = loader.load();
 
-                    data.username = username;
+                        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        currentStage.close();
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CustomerForm.fxml"));
-                    Parent root = loader.load();
+                        Stage customerFormStage = new Stage();
+                        customerFormStage.setTitle("Admin Form");
+                        customerFormStage.initModality(Modality.APPLICATION_MODAL);
+                        customerFormStage.setScene(new Scene(root));
+                        customerFormStage.show();
+                    }
+                    else {
 
-                    Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    currentStage.close();
+                        data.username = username;
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CustomerForm.fxml"));
+                        Parent root = loader.load();
 
-                    Stage customerFormStage = new Stage();
-                    customerFormStage.setTitle("Customer Form");
-                    customerFormStage.initModality(Modality.APPLICATION_MODAL);
-                    customerFormStage.setScene(new Scene(root));
-                    customerFormStage.show();
+                        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        currentStage.close();
+
+                        Stage customerFormStage = new Stage();
+                        customerFormStage.setTitle("Customer Form");
+                        customerFormStage.initModality(Modality.APPLICATION_MODAL);
+                        customerFormStage.setScene(new Scene(root));
+                        customerFormStage.show();
+                    }
 
                 } catch (Exception e) {
                     e.printStackTrace();

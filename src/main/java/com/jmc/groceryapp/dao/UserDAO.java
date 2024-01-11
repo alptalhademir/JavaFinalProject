@@ -2,6 +2,8 @@ package com.jmc.groceryapp.dao;
 
 import com.jmc.groceryapp.Models.User;
 
+import java.sql.SQLException;
+
 public interface UserDAO {
     //User getUser(int userID);
 
@@ -12,5 +14,6 @@ public interface UserDAO {
     void deleteUser(User user);
 
     boolean doesUsernameExist(String username);
+
 
 }
