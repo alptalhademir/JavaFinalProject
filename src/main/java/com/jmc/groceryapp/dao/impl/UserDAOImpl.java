@@ -16,38 +16,38 @@ public class UserDAOImpl implements UserDAO {
         this.databaseConnection = databaseConnection;
     }
 
-    @Override
-    public User getUser(int userID) {
-        User user = null;
-        try {
-            databaseConnection.connect();
-            Connection connection = databaseConnection.getConnection();
-            PreparedStatement statement= connection.prepareStatement("SELECT * FROM user_info WHERE UserID = ?");
-            statement.setInt(1, userID);
-
-            ResultSet resultSet = statement.executeQuery();
-            if(resultSet.next()){
-                user = new User(resultSet.getString("UserName"), resultSet.getString("FirstName"),
-                        resultSet.getString("LastName"), resultSet.getString("Password"),
-                        resultSet.getString("UserRole"));
-
-                user.setUserName(resultSet.getString("UserName"));
-                user.setFirstName(resultSet.getString("FirstName"));
-                user.setLastName(resultSet.getString("LastName"));
-                user.setPassword(resultSet.getString("Password"));
-                user.setUserRole(resultSet.getString("UserRole"));
-            }
-
-            resultSet.close();
-            statement.close();
-            databaseConnection.disconnect();
-        }
-
-        catch (SQLException e){
-            // error handling part
-        }
-        return user;
-    }
+//    @Override
+//    public User getUser(int userID) {
+//        User user = null;
+//        try {
+//            databaseConnection.connect();
+//            Connection connection = databaseConnection.getConnection();
+//            PreparedStatement statement= connection.prepareStatement("SELECT * FROM user_info WHERE UserID = ?");
+//            statement.setInt(1, userID);
+//
+//            ResultSet resultSet = statement.executeQuery();
+//            if(resultSet.next()){
+//                user = new User(resultSet.getString("UserName"), resultSet.getString("FirstName"),
+//                        resultSet.getString("LastName"), resultSet.getString("Password"),
+//                        resultSet.getString("UserRole"));
+//
+//                user.setUserName(resultSet.getString("UserName"));
+//                user.setFirstName(resultSet.getString("FirstName"));
+//                user.setLastName(resultSet.getString("LastName"));
+//                user.setPassword(resultSet.getString("Password"));
+//                user.setUserRole(resultSet.getString("UserRole"));
+//            }
+//
+//            resultSet.close();
+//            statement.close();
+//            databaseConnection.disconnect();
+//        }
+//
+//        catch (SQLException e){
+//            // error handling part
+//        }
+//        return user;
+//    }
 
     @Override
     public void addUser(User user) {
@@ -85,7 +85,7 @@ public class UserDAOImpl implements UserDAO {
             statement.setString(3, user.getLastName());
             statement.setString(4, user.getPassword());
             statement.setString(5, user.getUserRole());
-            statement.setString(6, user.getUserID());
+            statement.setInt(6, user.getUserID());
 
             statement.executeUpdate();
 
@@ -104,7 +104,7 @@ public class UserDAOImpl implements UserDAO {
             databaseConnection.connect();
             Connection connection = databaseConnection.getConnection();
             PreparedStatement statement= connection.prepareStatement("DELETE FROM user_info WHERE UserId = ?");
-            statement.setString(1, user.getUserID());
+            statement.setInt(1, user.getUserID());
 
             statement.executeUpdate();
 

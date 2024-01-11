@@ -3,7 +3,7 @@ package com.jmc.groceryapp.dao;
 import com.jmc.groceryapp.Models.User;
 
 public interface UserDAO {
-    User getUser(int userID);
+    //User getUser(int userID);
 
     void addUser(User user);
 

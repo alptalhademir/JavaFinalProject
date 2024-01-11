@@ -1,29 +1,33 @@
 package com.jmc.groceryapp.Models;
 
-public class ShoppingCartItem {
-    private int itemID;
-    private Product product;
-    private float weight;
-    private float subtotal;
+import javafx.beans.property.*;
 
-    public ShoppingCartItem(Product product, float weight){
-        this.product = product;
-        this.weight = weight;
+public class ShoppingCartItem {
+    private final IntegerProperty itemID;
+    private final ObjectProperty<Product> product;
+    private final DoubleProperty weight;
+    private final DoubleProperty subtotal;
+
+    public ShoppingCartItem(Product product, double weight){
+        this.itemID = new SimpleIntegerProperty();
+        this.product = new SimpleObjectProperty<>(product);
+        this.weight = new SimpleDoubleProperty(weight);
+        this.subtotal = new SimpleDoubleProperty();
     }
 
-    public int getCartItemID() {return itemID;}
+    public int getItemID() {return itemID.get();}
+    public IntegerProperty itemIDProperty() {return itemID;}
+    public void setItemID(int itemID) {this.itemID.set(itemID);}
 
-    public void setCartItemID(int itemID) {this.itemID = itemID;}
+    public Product getProduct() {return product.get();}
+    public ObjectProperty<Product> productProperty() {return product;}
+    public void setProduct(Product product) {this.product.set(product);}
 
-    public Product getProduct() {return product;}
+    public double getWeight() {return weight.get();}
+    public DoubleProperty weightProperty() {return weight;}
+    public void setWeight(double weight) {this.weight.set(weight);}
 
-    public void setProduct(Product product) {this.product = product;}
-
-    public float getWeight() {return weight;}
-
-    public void setWeight(float weight) {this.weight = weight;}
-
-    public float getSubtotal() {return subtotal;}
-
-    public void setSubtotal(float amount) {this.subtotal = product.getPrice()*amount;}
+    public double getSubtotal() {return subtotal.get();}
+    public DoubleProperty subtotalProperty() {return subtotal;}
+    public void setSubtotal(double amount) {this.subtotal.set(product.get().getPrice()*amount);}
 }

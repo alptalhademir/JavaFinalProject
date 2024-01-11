@@ -3,6 +3,7 @@ package com.jmc.groceryapp.dao.impl;
 import com.jmc.groceryapp.Models.Product;
 import com.jmc.groceryapp.dao.ProductDAO;
 import com.jmc.groceryapp.utils.DatabaseConnection;
+import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -53,7 +54,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public List<Product> getAllProducts() {
-        List<Product> products = null;
+        ObservableList<Product> products = null;
 
         try{
             databaseConnection.connect();
@@ -98,9 +99,9 @@ public class ProductDAOImpl implements ProductDAO {
                     PreparedStatement.RETURN_GENERATED_KEYS);
             statement.setString(1, product.getName());
             statement.setString(2, product.getType());
-            statement.setFloat(3, product.getPrice());
-            statement.setFloat(4, product.getStock());
-            statement.setFloat(5, product.getThreshold());
+            statement.setDouble(3, product.getPrice());
+            statement.setDouble(4, product.getStock());
+            statement.setDouble(5, product.getThreshold());
 
             statement.executeUpdate();
 
@@ -122,9 +123,9 @@ public class ProductDAOImpl implements ProductDAO {
                     "Name = ?, Type = ?, Price = ?, Stock = ?, Threshold = ? WHERE ProductID = ?");
             statement.setString(1, product.getName());
             statement.setString(2, product.getType());
-            statement.setFloat(3, product.getPrice());
-            statement.setFloat(4, product.getStock());
-            statement.setFloat(5, product.getThreshold());
+            statement.setDouble(3, product.getPrice());
+            statement.setDouble(4, product.getStock());
+            statement.setDouble(5, product.getThreshold());
             statement.setInt(6, product.getProductID());
 
             statement.executeUpdate();

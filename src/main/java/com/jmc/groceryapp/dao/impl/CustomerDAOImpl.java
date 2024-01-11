@@ -32,8 +32,8 @@ public class CustomerDAOImpl extends UserDAOImpl implements CustomerDAO {
             if(resultSet.next()){
                 customer = new Customer(resultSet.getString("FirstName"), resultSet.getString("LastName"),
                         resultSet.getString("UserName"), resultSet.getString("Password"),
-                        resultSet.getString("UserRole"), resultSet.getString("Address"),
-                        resultSet.getString("PhoneNumber"), resultSet.getDate("CreationDate").toLocalDate());
+                        resultSet.getString("Address"), resultSet.getString("PhoneNumber"),
+                        resultSet.getDate("CreationDate").toLocalDate());
 
                 customer.setFirstName(resultSet.getString("FirstName"));
                 customer.setLastName(resultSet.getString("LastName"));

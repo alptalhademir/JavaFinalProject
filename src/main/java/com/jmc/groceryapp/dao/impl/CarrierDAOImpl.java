@@ -33,7 +33,7 @@ public class CarrierDAOImpl extends UserDAOImpl implements CarrierDAO {
             if (resultSet.next()) {
                 carrier = new Carrier(resultSet.getString("FirstName"), resultSet.getString("LastName"),
                         resultSet.getString("UserName"), resultSet.getString("Password"),
-                        resultSet.getString("UserRole"),resultSet.getString("PhoneNumber"),
+                        resultSet.getString("PhoneNumber"),
                         resultSet.getDate("CreationDate").toLocalDate());
 
 

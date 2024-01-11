@@ -87,12 +87,12 @@ public class SignupController implements Initializable {
         String firstName = name_field.getText();
         String lastName = surname_field.getText();
         String userName = username_field.getText();
-        String adress = address_field.getText();
+        String address = address_field.getText();
         String password = password_field.getText();
         String phoneNumber = phone_field.getText();
 
         LocalDate creationDate = LocalDate.now();
-        Customer customer = new Customer(firstName, lastName, userName, password, "Customer", adress, phoneNumber, creationDate );
+        Customer customer = new Customer(firstName, lastName, userName, password, address, phoneNumber, creationDate );
         userDao.addUser(customer);
         customerDAO.addCustomer(customer);
     }

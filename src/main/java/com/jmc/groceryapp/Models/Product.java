@@ -1,43 +1,45 @@
 package com.jmc.groceryapp.Models;
 
-public class Product {
-    private int productID;
-    private String name;
-    private String type;
-    private float price;
-    private float stock;
-    private float threshold;
+import javafx.beans.property.*;
 
-    public Product(int productID, String name, String type, float price, float stock, float threshold){
-        this.productID = productID;
-        this.name = name;
-        this.type = type;
-        this.price = price;
-        this.stock = stock;
-        this.threshold = threshold;
+public class Product {
+    private final IntegerProperty productID;
+    private final StringProperty name;
+    private final StringProperty type;
+    private final DoubleProperty price;
+    private final DoubleProperty stock;
+    private final DoubleProperty threshold;
+
+    public Product(int productID, String name, String type, double price, double stock, double threshold){
+        this.productID = new SimpleIntegerProperty(productID);
+        this.name = new SimpleStringProperty(name);
+        this.type = new SimpleStringProperty(type);
+        this.price = new SimpleDoubleProperty(price);
+        this.stock = new SimpleDoubleProperty(stock);
+        this.threshold = new SimpleDoubleProperty(threshold);
     }
 
-    public int getProductID() {return productID;}
+    public int getProductID() {return productID.get();}
+    public IntegerProperty productIDProperty() {return productID;}
+    public void setProductID(int productID) {this.productID.set(productID);}
 
-    public void setProductID(int productID) {this.productID = productID;}
+    public String getName() {return name.get();}
+    public StringProperty nameProperty() {return name;}
+    public void setName(String name) {this.name.set(name);}
 
-    public String getName() {return name;}
+    public String getType() {return type.get();}
+    public StringProperty typeProperty() {return type;}
+    public void setType(String type) {this.type.set(type);}
 
-    public void setName(String name) {this.name = name;}
+    public double getPrice() {return price.get();}
+    public DoubleProperty priceProperty() {return price;}
+    public void setPrice(double price) {this.price.set(price);}
 
-    public String getType() {return type;}
+    public double getStock() {return stock.get();}
+    public DoubleProperty stockProperty() {return stock;}
+    public void setStock(double stock) {this.stock.set(stock);}
 
-    public void setType(String type) {this.type = type;}
-
-    public float getPrice() {return price;}
-
-    public void setPrice(float price) {this.price = price;}
-
-    public float getStock() {return stock;}
-
-    public void setStock(float stock) {this.stock = stock;}
-
-    public float getThreshold() {return threshold;}
-
-    public void setThreshold(float threshold) {this.threshold = threshold;}
+    public double getThreshold() {return threshold.get();}
+    public DoubleProperty thresholdProperty() {return threshold;}
+    public void setThreshold(double threshold) {this.threshold.set(threshold);}
 }

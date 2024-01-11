@@ -1,33 +1,34 @@
 package com.jmc.groceryapp.Models;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.*;
+
 import java.time.LocalDate;
 
 public class Owner extends User {
-
+    private final IntegerProperty ownerID;
     private final ObjectProperty<LocalDate> creationDate;
-    private final StringProperty PurchaseStatus;
-
-    private IntegerProperty ownerID;
+    private final StringProperty purchaseStatus;
 
 
-    public Owner( String fName, String lName, String uName, String Password,LocalDate cDate, String pStatus){
-        super(fName, lName, uName, Password, "Owner");
+    public Owner(String firstName, String lastName, String userName, String password, LocalDate creationDate,
+                 String purchaseStatus) {
+        super(firstName, lastName, userName, password, "Owner");
 
-        this.creationDate=new SimpleObjectProperty<>(this, "creationDate", cDate);
-        this.PurchaseStatus=new SimpleStringProperty(this, "PurchaseStatus", pStatus);
-
+        this.ownerID = new SimpleIntegerProperty();
+        this.creationDate = new SimpleObjectProperty<>(creationDate);
+        this.purchaseStatus = new SimpleStringProperty(purchaseStatus);
     }
 
-
-    public ObjectProperty<LocalDate> creationDateProperty() {return creationDate;}
-    public StringProperty PurchaseStatusProperty() {return PurchaseStatus;}
-
-
     public int getOwnerID() {return ownerID.get();}
+    public IntegerProperty ownerIDProperty() {return ownerID;}
+    public void setOwnerID(int ownerID) {this.ownerID.set(ownerID);}
 
-    public void setOwnerID(int ownerID) {this.ownerID.set(ownerID);}}
+    public LocalDate getCreationDate() {return creationDate.get();}
+    public ObjectProperty<LocalDate> creationDateProperty() {return creationDate;}
+    public void setCreationDate(LocalDate creationDate) {this.creationDate.set(creationDate);}
+
+    public String getPurchaseStatus() {return purchaseStatus.get();}
+    public StringProperty PurchaseStatusProperty() {return purchaseStatus;}
+    public void setPurchaseStatus(String PurchaseStatus) {this.purchaseStatus.set(PurchaseStatus);}
+
+}
