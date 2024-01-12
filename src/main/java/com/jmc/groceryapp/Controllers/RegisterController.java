@@ -90,7 +90,7 @@ public class RegisterController implements Initializable {
                 }
 
                 LocalDate creationDate = LocalDate.now();
-                Customer customer = new Customer(firstName, lastName, userName, password, "Customer", address, phoneNumber, creationDate);
+                Customer customer = new Customer(firstName, lastName, userName, password, address, phoneNumber, creationDate);
                 userDao.addUser(customer);
                 customerDAO.addCustomer(customer);
 
