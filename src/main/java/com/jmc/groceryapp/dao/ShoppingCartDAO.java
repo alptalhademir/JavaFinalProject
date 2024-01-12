@@ -4,6 +4,7 @@ import com.jmc.groceryapp.Models.Product;
 import com.jmc.groceryapp.Models.ShoppingCart;
 import com.jmc.groceryapp.Models.ShoppingCartItem;
 
+
 import java.util.List;
 
 public interface ShoppingCartDAO {

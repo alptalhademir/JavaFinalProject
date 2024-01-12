@@ -1,5 +1,6 @@
 package com.jmc.groceryapp.Models;
 
+import java.sql.Connection;
 import java.util.List;
 
 public class ShoppingCart {
@@ -18,4 +19,7 @@ public class ShoppingCart {
     public List<ShoppingCartItem> getItems() {return items;}
 
     public void setItems(List<ShoppingCartItem> items) {this.items = items;}
+
+    public Connection getConnection() {return getConnection();
+    }
 }

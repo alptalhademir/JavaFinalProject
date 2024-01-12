@@ -4,6 +4,8 @@ import com.jmc.groceryapp.Models.Customer;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 
+import java.sql.SQLException;
+
 public interface CustomerDAO extends UserDAO {
     Customer getCustomer(int customerID);
 
@@ -20,5 +22,6 @@ public interface CustomerDAO extends UserDAO {
 
     int getTotalCustomersByAddress();
     LineChart<String, Number> createLineChartAddress();
+
 
 }
