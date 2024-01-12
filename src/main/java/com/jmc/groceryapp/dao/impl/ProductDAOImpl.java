@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAOImpl implements ProductDAO {
@@ -54,15 +55,15 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public List<Product> getAllProducts() {
-        ObservableList<Product> products = null;
+        List<Product> products = new ArrayList<>();
 
-        try{
+        try {
             databaseConnection.connect();
             Connection connection = databaseConnection.getConnection();
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM product_info WHERE Stock > 0");
 
             ResultSet resultSet = statement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 Product product = new Product(resultSet.getInt("ProductID"), resultSet.getString("Name"),
                         resultSet.getString("Type"), resultSet.getDouble("Price"),
                         resultSet.getDouble("Stock"), resultSet.getDouble("Threshold"));
@@ -81,13 +82,12 @@ public class ProductDAOImpl implements ProductDAO {
             statement.close();
             databaseConnection.disconnect();
 
-        }
-
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return products;
     }
+
 
     @Override
     public void addProduct(Product product) {
@@ -146,10 +146,59 @@ public class ProductDAOImpl implements ProductDAO {
             Connection connection = databaseConnection.getConnection();
             PreparedStatement statement = connection.prepareStatement("DELETE FROM product_info WHERE ProductID = ?");
             statement.setInt(1, product.getProductID());
+
+            statement.executeUpdate();
         }
 
         catch (Exception e){
             e.printStackTrace();
         }
     }
+
+    public int getTotalFruits() {
+        int totalFruits = 0;
+
+        try {
+            databaseConnection.connect();
+            Connection connection = databaseConnection.getConnection();
+            PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM product_info WHERE Type = 'Fruit' AND Stock > 0");
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                totalFruits = resultSet.getInt(1);
+            }
+
+            resultSet.close();
+            statement.close();
+            databaseConnection.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return totalFruits;
+    }
+
+    public int getTotalVegetables() {
+        int totalVegetables = 0;
+
+        try {
+            databaseConnection.connect();
+            Connection connection = databaseConnection.getConnection();
+            PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM product_info WHERE Type = 'Vegetable' AND Stock > 0");
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                totalVegetables = resultSet.getInt(1);
+            }
+
+            resultSet.close();
+            statement.close();
+            databaseConnection.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return totalVegetables;
+    }
+
 }

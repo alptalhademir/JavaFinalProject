@@ -4,8 +4,9 @@ module com.jmc.groceryapp {
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
 
-
+    opens com.jmc.groceryapp.Models to javafx.base;
     opens com.jmc.groceryapp to javafx.fxml;
+    opens com.jmc.groceryapp.Controllers to javafx.fxml;
     exports com.jmc.groceryapp;
     exports com.jmc.groceryapp.Controllers;
     exports com.jmc.groceryapp.Controllers.Owner;

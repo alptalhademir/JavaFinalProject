@@ -14,4 +14,8 @@ public interface ProductDAO {
     void updateProduct(Product product);
 
     void deleteProduct(Product product);
+
+    int getTotalFruits();
+
+    int getTotalVegetables();
 }

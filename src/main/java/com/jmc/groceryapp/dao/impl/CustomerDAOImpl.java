@@ -55,7 +55,7 @@ public class CustomerDAOImpl extends UserDAOImpl implements CustomerDAO {
         }
 
         catch (Exception e){
-            // error handling part
+           e.printStackTrace();
         }
         return customer;
     }
@@ -113,7 +113,7 @@ public class CustomerDAOImpl extends UserDAOImpl implements CustomerDAO {
         }
 
         catch (Exception e){
-            // error handling part
+            e.printStackTrace();
         }
     }
 
@@ -133,7 +133,7 @@ public class CustomerDAOImpl extends UserDAOImpl implements CustomerDAO {
         }
 
         catch (Exception e){
-            // error handling part
+            e.printStackTrace();
         }
     }
 
@@ -206,7 +206,6 @@ public class CustomerDAOImpl extends UserDAOImpl implements CustomerDAO {
         try {
             databaseConnection.connect();
             Connection connection = databaseConnection.getConnection();
-            // Assuming 'address' is the name of the column storing addresses
             PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM customer_info WHERE address = ?");
 
 
