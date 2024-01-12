@@ -28,6 +28,7 @@ public class ProductDAOImpl implements ProductDAO {
                     "WHERE ProductID = ?");
             statement.setInt(1, productID);
 
+
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
                 product = new Product(resultSet.getInt("ProductID"), resultSet.getString("Name"),
