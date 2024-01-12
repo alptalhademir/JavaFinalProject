@@ -30,15 +30,15 @@ public class ProductDAOImpl implements ProductDAO {
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
                 product = new Product(resultSet.getInt("ProductID"), resultSet.getString("Name"),
-                        resultSet.getString("Type"), resultSet.getFloat("Price"),
-                        resultSet.getFloat("Stock"), resultSet.getFloat("Threshold"));
+                        resultSet.getString("Type"), resultSet.getDouble("Price"),
+                        resultSet.getDouble("Stock"), resultSet.getDouble("Threshold"));
 
                 product.setProductID(resultSet.getInt("ProductID"));
                 product.setName(resultSet.getString("Name"));
                 product.setType(resultSet.getString("Type"));
-                product.setPrice(resultSet.getFloat("Price"));
-                product.setStock(resultSet.getFloat("Stock"));
-                product.setThreshold(resultSet.getFloat("Threshold"));
+                product.setPrice(resultSet.getDouble("Price"));
+                product.setStock(resultSet.getDouble("Stock"));
+                product.setThreshold(resultSet.getDouble("Threshold"));
             }
 
             resultSet.close();
@@ -64,15 +64,15 @@ public class ProductDAOImpl implements ProductDAO {
             ResultSet resultSet = statement.executeQuery();
             while(resultSet.next()){
                 Product product = new Product(resultSet.getInt("ProductID"), resultSet.getString("Name"),
-                        resultSet.getString("Type"), resultSet.getFloat("Price"),
-                        resultSet.getFloat("Stock"), resultSet.getFloat("Threshold"));
+                        resultSet.getString("Type"), resultSet.getDouble("Price"),
+                        resultSet.getDouble("Stock"), resultSet.getDouble("Threshold"));
 
                 product.setProductID(resultSet.getInt("ProductID"));
                 product.setName(resultSet.getString("Name"));
                 product.setType(resultSet.getString("Type"));
-                product.setPrice(resultSet.getFloat("Price"));
-                product.setStock(resultSet.getFloat("Stock"));
-                product.setThreshold(resultSet.getFloat("Threshold"));
+                product.setPrice(resultSet.getDouble("Price"));
+                product.setStock(resultSet.getDouble("Stock"));
+                product.setThreshold(resultSet.getDouble("Threshold"));
 
                 products.add(product);
             }
