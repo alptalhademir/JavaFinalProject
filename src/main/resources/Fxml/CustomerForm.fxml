@@ -105,7 +105,7 @@
          </left>
          <center>
             <AnchorPane prefHeight="584.0" prefWidth="843.0" BorderPane.alignment="CENTER">
-               <AnchorPane fx:id="home_form" prefHeight="546.0" prefWidth="669.0" AnchorPane.bottomAnchor="38.0" AnchorPane.topAnchor="0.0">
+               <AnchorPane fx:id="home_form" prefHeight="546.0" prefWidth="669.0" visible="false" AnchorPane.bottomAnchor="38.0" AnchorPane.topAnchor="0.0">
                   <BorderPane layoutY="20.0" prefHeight="543.0" prefWidth="825.0" AnchorPane.bottomAnchor="-17.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-156.0" AnchorPane.topAnchor="20.0">
                      <top>
                         <VBox prefHeight="96.0" prefWidth="842.0" BorderPane.alignment="CENTER">
@@ -123,7 +123,7 @@
                      <center>
                         <VBox prefHeight="447.0" prefWidth="803.0" BorderPane.alignment="CENTER">
                            <AnchorPane prefHeight="447.0" prefWidth="764.0" VBox.vgrow="ALWAYS">
-                              <ScrollPane fx:id="scroll_pane" layoutY="9.0" prefHeight="416.0" prefWidth="759.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="9.0">
+                              <ScrollPane fx:id="scroll_pane" layoutY="9.0" prefHeight="416.0" prefWidth="759.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="9.0">
                                  <AnchorPane fx:id="product_viewer" minHeight="0.0" minWidth="0.0" prefHeight="547.0" prefWidth="917.0" />
                                  <effect>
                                     <DropShadow height="47.53" radius="19.58" width="32.79" />
@@ -589,7 +589,7 @@
                      </center>
                   </BorderPane>
                </AnchorPane>
-               <AnchorPane fx:id="shopping_cart_form" layoutX="61.0" layoutY="215.0" prefHeight="584.0" prefWidth="769.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <AnchorPane fx:id="shopping_cart_form" layoutX="61.0" layoutY="215.0" prefHeight="584.0" prefWidth="769.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <BorderPane layoutX="224.0" layoutY="152.0" prefHeight="584.0" prefWidth="764.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
                      <top>
                         <VBox prefHeight="78.0" prefWidth="769.0" BorderPane.alignment="CENTER">
@@ -609,21 +609,7 @@
                      <center>
                         <VBox prefHeight="506.0" prefWidth="748.0" BorderPane.alignment="CENTER">
                            <HBox prefHeight="526.0" prefWidth="760.0" VBox.vgrow="ALWAYS">
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="273.0" prefWidth="658.0" vbarPolicy="ALWAYS" HBox.hgrow="ALWAYS">
-                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="278.0" prefWidth="867.0">
-                                    <TableView fx:id="cart_details_table" prefHeight="440.0" prefWidth="1523.0" AnchorPane.bottomAnchor="-162.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-656.0" AnchorPane.topAnchor="0.0">
-                                       <columns>
-                                          <TableColumn fx:id="col_number" prefWidth="100.0" resizable="false" text="No" />
-                                          <TableColumn fx:id="col_productName" prefWidth="195.81393432617188" resizable="false" text="Product Name" />
-                                          <TableColumn fx:id="col_amount" prefWidth="283.5209045410156" resizable="false" text="Amount" />
-                                          <TableColumn fx:id="col_price" prefWidth="178.06475830078125" resizable="false" text="Price" />
-                                       </columns>
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                    </TableView>
-                                 </AnchorPane>
-                              </ScrollPane>
+                              <ScrollPane fx:id="shoppingcart_pane" hbarPolicy="NEVER" prefHeight="273.0" prefWidth="658.0" vbarPolicy="ALWAYS" HBox.hgrow="ALWAYS" />
                            </HBox>
                            <VBox prefHeight="450.0" prefWidth="764.0" VBox.vgrow="ALWAYS">
                               <HBox prefHeight="51.0" prefWidth="286.0" VBox.vgrow="ALWAYS">
@@ -659,7 +645,7 @@
                                           <Font size="25.0" />
                                        </font>
                                     </Label>
-                                    <VBox prefHeight="32.0" prefWidth="215.0" HBox.hgrow="ALWAYS" />
+                                    <VBox id="shoppingcart_pane" prefHeight="32.0" prefWidth="215.0" HBox.hgrow="ALWAYS" />
                                  </HBox>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="10.0" prefHeight="51.0" prefWidth="286.0" VBox.vgrow="ALWAYS">

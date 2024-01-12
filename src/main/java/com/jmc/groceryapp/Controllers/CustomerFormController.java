@@ -29,6 +29,8 @@ import java.util.ResourceBundle;
 public class CustomerFormController implements Initializable {
 
     @FXML
+    public ScrollPane shoppingcart_pane;
+    @FXML
     private Button aboutUs_btn;
 
     @FXML

@@ -30,7 +30,7 @@ public class ProductDAOImpl implements ProductDAO {
 
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
-                product = new Product(resultSet.getInt("ProductID"), resultSet.getString("Name"),
+                product = new Product(resultSet.getString("Name"),
                         resultSet.getString("Type"), resultSet.getDouble("Price"),
                         resultSet.getDouble("Stock"), resultSet.getDouble("Threshold"));
 
@@ -64,7 +64,7 @@ public class ProductDAOImpl implements ProductDAO {
 
             ResultSet resultSet = statement.executeQuery();
             while(resultSet.next()){
-                Product product = new Product(resultSet.getInt("ProductID"), resultSet.getString("Name"),
+                Product product = new Product(resultSet.getString("Name"),
                         resultSet.getString("Type"), resultSet.getDouble("Price"),
                         resultSet.getDouble("Stock"), resultSet.getDouble("Threshold"));
 

@@ -10,8 +10,8 @@ public class Product {
     private final DoubleProperty stock;
     private final DoubleProperty threshold;
 
-    public Product(int productID, String name, String type, double price, double stock, double threshold){
-        this.productID = new SimpleIntegerProperty(productID);
+    public Product(String name, String type, double price, double stock, double threshold){
+        this.productID = new SimpleIntegerProperty();
         this.name = new SimpleStringProperty(name);
         this.type = new SimpleStringProperty(type);
         this.price = new SimpleDoubleProperty(price);

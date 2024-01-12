@@ -239,7 +239,7 @@ public class MainFormController implements Initializable {
         float price = Float.parseFloat(product_price_field.getText());
         float threshold = Float.parseFloat(product_threshold_field.getText());
 
-        Product product = new Product(productId, productName, type, stock, price, threshold);
+        Product product = new Product(productName, type, stock, price, threshold);
 
     }
 
@@ -271,7 +271,7 @@ public class MainFormController implements Initializable {
 
             while (resultSet.next()) {
 
-                prodData = new Product(resultSet.getInt("productID"), resultSet.getString("Name"), resultSet.getString("Type"), resultSet.getFloat("Price"), resultSet.getFloat("Stock"), resultSet.getFloat("Threshold"));
+                prodData = new Product(resultSet.getString("Name"), resultSet.getString("Type"), resultSet.getFloat("Price"), resultSet.getFloat("Stock"), resultSet.getFloat("Threshold"));
                 listData.add(prodData);
             }
 
