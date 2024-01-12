@@ -1,18 +1,24 @@
 package com.jmc.groceryapp.Controllers;
 
+import com.jmc.groceryapp.Models.Product;
 import com.jmc.groceryapp.dao.CustomerDAO;
+import com.jmc.groceryapp.dao.ProductDAO;
 import com.jmc.groceryapp.dao.UserDAO;
 import com.jmc.groceryapp.dao.impl.CustomerDAOImpl;
+import com.jmc.groceryapp.dao.impl.ProductDAOImpl;
 import com.jmc.groceryapp.dao.impl.UserDAOImpl;
 import com.jmc.groceryapp.utils.DatabaseConnection;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,88 +27,243 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CustomerFormController implements Initializable {
-    
-    public Button home_btn;
-    public Button cart_btn;
-    public Button order_btn;
-    public Button account_btn;
-    public Button aboutUs_btn;
-    public AnchorPane product_viewer;
-    public Label vat_lbl;
-    public Label total_lbl;
-    public Button pay_btn;
-    public Button remove_btn;
-    @FXML
-    public Button log_out_btn;
-    public AnchorPane home_form;
-    public AnchorPane about_us_form;
-    public AnchorPane orders_form;
-    public Label totalOrderLabel;
-    public Label completedOrderLabel;
-    public Label pendingOrderLabel;
-    public Label canceledOrderLabel;
-    public TableView past_purchase_table;
-    public TableColumn col_num;
-    public TableColumn col_orderID;
-    public TableColumn col_totalQuantity;
-    public TableColumn col_totalPrice;
-    public TableColumn col_date;
-    public TableColumn col_status;
-    public AnchorPane account_form;
-    public Label username_lbl;
-    public Label phone_lbl;
-    public Label address_lbl;
-    public TextField currentPasswordTxtField;
-    public PasswordField currentPasswordField;
-    public TextField newPasswordTxtField;
-    public PasswordField newPasswordField;
-    public PasswordField confirmPasswordField;
-    public Button confirm_btn;
-    public TextField confirmPasswordTxtField;
-    public AnchorPane shopping_cart_form;
-    public TableView cart_details_table;
-    public TableColumn col_number;
-    public TableColumn col_productName;
-    public TableColumn col_amount;
-    public TableColumn col_price;
-    public Label subtotal_lbl;
-    public Button add_btn;
-    public Button continue_shopping_btn;
-    public AnchorPane phoneChange_form;
-    public Label username_phoneChange_lbl;
-    public Label phone_phoneChange_lbl;
-    public Label address_phoneChange_lbl;
-    public TextField currentPasswordTxtField1;
-    public TextField newPhoneTxtField;
-    public TextField confirmPassword_PhoneTxtField;
-    public PasswordField confirmPassword_PhoneField;
-    public Button confirm_Phone_btn;
-    public Button change_phone_btn;
-    public Button change_address_btn;
-    public AnchorPane address_change_form;
-    public Label username_addressChange_lbl;
-    public Label phone_addressChange_lbl;
-    public Label address_addressChange_lbl;
-    public TextField currentAddressTxtField;
-    public TextField newAddressxtField;
-    public TextField confirmPassword_AddressTxtField;
-    public PasswordField confirmPassword_AddressField;
-    public Button confirm_Phone_btn1;
-    public Button go_backPhone_btn;
-    public Button go_backAddress_btn;
-    public DatePicker delivery_datepicker;
-    public Button resetBtn;
-    public Button confirm_order_btn;
-    public Button cancel_order_btn;
 
-    public Label username;
+    @FXML
+    private Button aboutUs_btn;
+
+    @FXML
+    private AnchorPane about_us_form;
+
+    @FXML
+    private Button account_btn;
+
+    @FXML
+    private AnchorPane account_form;
+
+    @FXML
+    private Button add_btn;
+
+    @FXML
+    private Label address_addressChange_lbl;
+
+    @FXML
+    private AnchorPane address_change_form;
+
+    @FXML
+    private Label address_lbl;
+
+    @FXML
+    private Label address_phoneChange_lbl;
+
+    @FXML
+    private Button cancel_order_btn;
+
+    @FXML
+    private Label canceledOrderLabel;
+
+    @FXML
+    private Button cart_btn;
+
+    @FXML
+    private TableView<?> cart_details_table;
+
+    @FXML
+    private Button change_address_btn;
+
+    @FXML
+    private Button change_phone_btn;
+
+    @FXML
+    private ScrollPane scroll_pane;
+
+    @FXML
+    private TableColumn<?, ?> col_amount;
+
+    @FXML
+    private TableColumn<?, ?> col_date;
+
+    @FXML
+    private TableColumn<?, ?> col_num;
+
+    @FXML
+    private TableColumn<?, ?> col_number;
+
+    @FXML
+    private TableColumn<?, ?> col_orderID;
+
+    @FXML
+    private TableColumn<?, ?> col_price;
+
+    @FXML
+    private TableColumn<?, ?> col_productName;
+
+    @FXML
+    private TableColumn<?, ?> col_status;
+
+    @FXML
+    private TableColumn<?, ?> col_totalPrice;
+
+    @FXML
+    private TableColumn<?, ?> col_totalQuantity;
+
+    @FXML
+    private Label completedOrderLabel;
+
+    @FXML
+    private PasswordField confirmPasswordField;
+
+    @FXML
+    private TextField confirmPasswordTxtField;
+
+    @FXML
+    private PasswordField confirmPassword_AddressField;
+
+    @FXML
+    private TextField confirmPassword_AddressTxtField;
+
+    @FXML
+    private PasswordField confirmPassword_PhoneField;
+
+    @FXML
+    private TextField confirmPassword_PhoneTxtField;
+
+    @FXML
+    private Button confirm_Phone_btn;
+
+    @FXML
+    private Button confirm_Phone_btn1;
+
+    @FXML
+    private Button confirm_btn;
+
+    @FXML
+    private Button confirm_order_btn;
+
+    @FXML
+    private Button continue_shopping_btn;
+
+    @FXML
+    private TextField currentAddressTxtField;
+
+    @FXML
+    private PasswordField currentPasswordField;
+
+    @FXML
+    private TextField currentPasswordTxtField;
+
+    @FXML
+    private TextField currentPasswordTxtField1;
+
+    @FXML
+    private DatePicker delivery_datepicker;
+
+    @FXML
+    private Button go_backAddress_btn;
+
+    @FXML
+    private Button go_backPhone_btn;
+
+    @FXML
+    private Button home_btn;
+
+    @FXML
+    private AnchorPane home_form;
+
+    @FXML
+    private Button log_out_btn;
+
+    @FXML
+    private TextField newAddressxtField;
+
+    @FXML
+    private PasswordField newPasswordField;
+
+    @FXML
+    private TextField newPasswordTxtField;
+
+    @FXML
+    private TextField newPhoneTxtField;
+
+    @FXML
+    private Button order_btn;
+
+    @FXML
+    private AnchorPane orders_form;
+
+    @FXML
+    private TableView<?> past_purchase_table;
+
+    @FXML
+    private Button pay_btn;
+
+    @FXML
+    private Label pendingOrderLabel;
+
+    @FXML
+    private AnchorPane phoneChange_form;
+
+    @FXML
+    private Label phone_addressChange_lbl;
+
+    @FXML
+    private Label phone_label;
+
+    @FXML
+    private Label phone_phoneChange_lbl;
+
+    @FXML
+    private AnchorPane product_viewer;
+
+    @FXML
+    private Button remove_btn;
+
+    @FXML
+    private Button resetBtn;
+
+    @FXML
+    private AnchorPane shopping_cart_form;
+
+    @FXML
+    private Label subtotal_lbl;
+
+    @FXML
+    private Label totalOrderLabel;
+
+    @FXML
+    private Label total_lbl;
+
+    @FXML
+    private Label username;
+
+    @FXML
+    private Label username_addressChange_lbl;
+
+    @FXML
+    private Label username_lbl;
+
+    @FXML
+    private Label username_phoneChange_lbl;
+
+    @FXML
+    private Label vat_lbl;
     private UserDAO userDao;
     private CustomerDAO customerDAO;
+
+    cardController cardController = new cardController();
+
+    ProductDAO productDAO = new ProductDAOImpl(new DatabaseConnection());
+
+
+
+
+    private ObservableList<Product> products=productDAO.getAllProducts();
+
     private final DatabaseConnection dataBaseConnection= new DatabaseConnection();
 
     public CustomerFormController() {
         this.userDao = new UserDAOImpl(dataBaseConnection);
         this.customerDAO = new CustomerDAOImpl(dataBaseConnection, dataBaseConnection);
+        this.productDAO = new ProductDAOImpl(dataBaseConnection);
     }
     public void displayUsername() {
 
@@ -133,10 +294,10 @@ public class CustomerFormController implements Initializable {
 
         if (user != null) {
             user = user.substring(0, 1).toUpperCase() + user.substring(1);
-            phone_lbl.setText(user);
+            phone_label.setText(user);
         } else {
 
-            phone_lbl.setText("N/A");
+            phone_label.setText("N/A");
         }
     }
 
@@ -272,5 +433,25 @@ public class CustomerFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         displayUsername();
         displayAddress();
+
+        ProductDAO productDAO = new ProductDAOImpl(new DatabaseConnection());
+        ObservableList<Product> products = productDAO.getAllProducts();
+
+        VBox vbox = new VBox();
+        for (Product product : products) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/cardProduct.fxml"));
+                Node cardProduct = loader.load();
+
+                cardController cardController = loader.getController();
+                cardController.setProduct(product);
+
+                vbox.getChildren().add(cardProduct);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        scroll_pane.setContent(vbox);
+
     }
 }

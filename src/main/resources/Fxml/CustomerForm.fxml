@@ -105,7 +105,7 @@
          </left>
          <center>
             <AnchorPane prefHeight="584.0" prefWidth="843.0" BorderPane.alignment="CENTER">
-               <AnchorPane fx:id="home_form" prefHeight="546.0" prefWidth="669.0" visible="false" AnchorPane.bottomAnchor="38.0" AnchorPane.topAnchor="0.0">
+               <AnchorPane fx:id="home_form" prefHeight="546.0" prefWidth="669.0" AnchorPane.bottomAnchor="38.0" AnchorPane.topAnchor="0.0">
                   <BorderPane layoutY="20.0" prefHeight="543.0" prefWidth="825.0" AnchorPane.bottomAnchor="-17.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-156.0" AnchorPane.topAnchor="20.0">
                      <top>
                         <VBox prefHeight="96.0" prefWidth="842.0" BorderPane.alignment="CENTER">
@@ -123,7 +123,7 @@
                      <center>
                         <VBox prefHeight="447.0" prefWidth="803.0" BorderPane.alignment="CENTER">
                            <AnchorPane prefHeight="447.0" prefWidth="764.0" VBox.vgrow="ALWAYS">
-                              <ScrollPane layoutY="9.0" prefHeight="416.0" prefWidth="759.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="9.0">
+                              <ScrollPane fx:id="scroll_pane" layoutY="9.0" prefHeight="416.0" prefWidth="759.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="9.0">
                                  <AnchorPane fx:id="product_viewer" minHeight="0.0" minWidth="0.0" prefHeight="547.0" prefWidth="917.0" />
                                  <effect>
                                     <DropShadow height="47.53" radius="19.58" width="32.79" />
@@ -383,7 +383,7 @@
                      </top>
                   </BorderPane>
                </AnchorPane>
-               <AnchorPane fx:id="account_form" prefHeight="584.0" prefWidth="769.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <AnchorPane fx:id="account_form" prefHeight="584.0" prefWidth="769.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <BorderPane layoutX="-5.0" layoutY="145.0" prefHeight="584.0" prefWidth="774.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <top>
                         <VBox prefHeight="78.0" prefWidth="769.0" BorderPane.alignment="CENTER">

@@ -3,6 +3,7 @@ package com.jmc.groceryapp.dao.impl;
 import com.jmc.groceryapp.Models.Product;
 import com.jmc.groceryapp.dao.ProductDAO;
 import com.jmc.groceryapp.utils.DatabaseConnection;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.Connection;
@@ -53,8 +54,8 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public List<Product> getAllProducts() {
-        ObservableList<Product> products = null;
+    public ObservableList<Product> getAllProducts() {
+        ObservableList<Product> products = FXCollections.observableArrayList();
 
         try{
             databaseConnection.connect();
